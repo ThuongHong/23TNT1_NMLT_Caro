@@ -47,8 +47,9 @@ int main()
             while (!IsSelected) MenuSelection();
             break;
 
-        NewGame:
         case 1://New Game
+            ResetData();
+        NewGame:
             system("cls");
             LoadingScreen();
             DrawBoard(12, 7, 12, 12);
@@ -56,9 +57,23 @@ int main()
             CursorState(true);
             ScoreBox();
             MoveHistory();
-            XMark();
 
-            SetCursorPosition(34, 18);
+            LoadHistory();
+
+            if (moves.empty())
+                SetCursorPosition(34, 18);
+            else {
+                Moving lastMove = moves.back();
+                if (moves.size() % 2 == 0) {
+                    XMark();
+                }
+                else {
+                    OMark();
+                }
+                SetCursorPosition(lastMove.coordX, lastMove.coordY);
+
+            }
+
             GetCursorPosition();
 
             int a, b;
@@ -114,14 +129,21 @@ int main()
                         break;
                     }
                 }
-                GameMove(Result, c);
-                MoveHistory();
+                else GameMove(Result, c);
                 if (Result == 1) {
+                    for (int i = 0; i < winMoves.size(); i++) {
+                        SetCursorPosition(winMoves[i].coordX, winMoves[i].coordY);
+                        cout << "+";
+                    }
                     Sleep(1500);
                     Blank(76, 0, 71, 39);
                     XWin();
                 }
                 else if (Result == 2) {
+                    for (int i = 0; i < winMoves.size(); i++) {
+                        SetCursorPosition(winMoves[i].coordX, winMoves[i].coordY);
+                        cout << "+";
+                    }
                     Sleep(1500);
                     Blank(76, 0, 71, 39);
                     OWin();

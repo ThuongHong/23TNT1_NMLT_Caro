@@ -45,12 +45,10 @@ void SaveFile(string s) {
 
     if (out != NULL) {
         fprintf(out, "%d\n", Moves);
-        for (int i = 0; i < BOARD_SIZE; i++) {
-            for (int j = 0; j < BOARD_SIZE; j++) {
-                fprintf(out, "%d ", _POINT[i][j]);
-            }
-            fprintf(out, "\n");
+        for (int i = 0; i < moves.size(); i++) {
+            fprintf(out, "%d %d %d %d\n", moves[i].x, moves[i].y, moves[i].coordX, moves[i].coordY);
         }
+
         fclose(out);
     }
 }
@@ -81,11 +79,11 @@ void LoadFile(string s) {
     fopen_s(&inp, fileName.c_str(), "r+");
 
     if (inp != NULL) {
+        int x, y, coordX, coordY;
         fscanf_s(inp, "%d", &Moves);
-        for (int i = 0; i < BOARD_SIZE; i++) {
-            for (int j = 0; j < BOARD_SIZE; j++) {
-                fscanf_s(inp, "%d", &_POINT[i][j]);
-            }
+        for (int i = 0; i < Moves; i++) {
+            fscanf_s(inp, "%d %d %d %d", &x, &y, &coordX, &coordY);
+            moves.push_back({ x, y, coordX, coordY });
         }
         fclose(inp);
     }
