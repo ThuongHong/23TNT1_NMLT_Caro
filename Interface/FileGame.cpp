@@ -4,7 +4,7 @@
 DIR* d;
 struct dirent* dir;
 string fileName[7]{ "" }, tmpFileName = "";
-int nFile = 0, FilesInDir = 0;
+int nFile = 0;
 
 string InputFileName(int x, int y) {
     const int LEN = 10;
@@ -40,7 +40,7 @@ string InputFileName(int x, int y) {
 void SaveFile(string s) {
     if (s == "") return;
     FILE* out;
-    string fileName = "SaveGame\\" + to_string(++FilesInDir) + ". " + s + ".txt";
+    string fileName = "SaveGame\\" + to_string(++nFile) + ". " + s + ".txt";
     fopen_s(&out, fileName.c_str(), "w+");
 
     if (out != NULL) {
@@ -57,20 +57,25 @@ bool RenameFile(string s) {
     string oldName = "SaveGame\\" + s + ".txt";
     string newName = "SaveGame\\" + to_string(opt) + ". " + InputFileName(65, 19) + ".txt";
 
-    if (rename(oldName.c_str(), newName.c_str()) == 0)
+    if (rename(oldName.c_str(), newName.c_str()) == 0) {
         return true;
-    else
+    }
+    else {
         return false;
+    }
 }
 
 bool RemoveFile(string s) {
     string fileName = "SaveGame\\" + s + ".txt";
 
     // Thong bao ...
-    if (remove(fileName.c_str()) == 0) 
+    if (remove(fileName.c_str()) == 0) {
+        SortFileName();
         return true;
-    else
+    }
+    else {
         return false;
+    }
 }
 
 void LoadFile(string s) {
@@ -105,5 +110,16 @@ void getFileName() {
         }
         closedir(d);
     }
-    FilesInDir = nFile;
+}
+
+void SortFileName() {
+    getFileName();
+    string oldName;
+    string newName;
+    for (int i = 1; i <= nFile; i++) {
+        oldName = "SaveGame\\" + fileName[i] + ".txt";
+        newName = oldName; newName[9] = char(i + '0');
+        rename(oldName.c_str(), newName.c_str());
+    }
+    getFileName();
 }

@@ -254,23 +254,31 @@ void GameMenuSelection() {
 void LoadSelection1() {
     getFileName();
     SetCursorPosition(55, 21);
-    if (opt == 1) cout << ANSI_Green;
-    cout << "1. " << fileName[1] << ANSI_Black;
-    SetCursorPosition(55, 23);
-    if (opt == 2) cout << ANSI_Green;
-    cout << "2. " << fileName[2] << ANSI_Black;
-    SetCursorPosition(55, 25);
-    if (opt == 3) cout << ANSI_Green;
-    cout << "3. " << fileName[3] << ANSI_Black;
-    SetCursorPosition(55, 27);
-    if (opt == 4) cout << ANSI_Green;
-    cout << "4. " << fileName[4] << ANSI_Black;
-    SetCursorPosition(55, 29);
-    if (opt == 5) cout << ANSI_Green;
-    cout << "5. " << fileName[5] << ANSI_Black;
-    SetCursorPosition(55, 31);
-    if (opt == 6) cout << ANSI_Green;
-    cout << "6. " << fileName[6] << ANSI_Black;
+    //if (opt == 1) cout << ANSI_Green;
+    //if (fileName[1].length() > 0) cout << "1. " << fileName[1].substr(3) << ANSI_Black;
+    //else cout << "1. " << 
+    //SetCursorPosition(55, 23);
+    //if (opt == 2) cout << ANSI_Green;
+    //cout << "2. " << fileName[2] << ANSI_Black;
+    //SetCursorPosition(55, 25);
+    //if (opt == 3) cout << ANSI_Green;
+    //cout << "3. " << fileName[3] << ANSI_Black;
+    //SetCursorPosition(55, 27);
+    //if (opt == 4) cout << ANSI_Green;
+    //cout << "4. " << fileName[4] << ANSI_Black;
+    //SetCursorPosition(55, 29);
+    //if (opt == 5) cout << ANSI_Green;
+    //cout << "5. " << fileName[5] << ANSI_Black;
+    //SetCursorPosition(55, 31);
+    //if (opt == 6) cout << ANSI_Green;
+    //cout << "6. " << fileName[6] << ANSI_Black;
+    for (int i = 1; i <= 6; i++) {
+        SetCursorPosition(55, 19 + 2 * i);
+        if (opt == i) cout << ANSI_Green;
+        if (fileName[i].length() > 0) cout << fileName[i] << "           ";
+        else cout << i << ".            ";
+        cout << ANSI_Black;
+    }
 
     NavigateLoad1(6);
 }

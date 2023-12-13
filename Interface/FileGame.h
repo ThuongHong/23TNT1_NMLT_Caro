@@ -18,3 +18,5 @@ bool RemoveFile(string s);
 void LoadFile(string s);
 
 void getFileName();
+
+void SortFileName();

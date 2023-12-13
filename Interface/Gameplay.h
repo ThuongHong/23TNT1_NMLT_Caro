@@ -20,7 +20,7 @@ extern int Result;
 
 void ResetData();
 
-int isEnd(int row_move, int col_move, int coordX, int coordY, int state);
+int isEnd(int row_move, int col_move, int state);
 
 void GameMove(int& result, int c);
 

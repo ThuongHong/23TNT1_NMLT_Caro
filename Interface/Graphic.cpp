@@ -3085,17 +3085,15 @@ void DrawBoard(short coordX, short coordY, short length, short width)
 
     printf("%c", 217);
 
-    //In toa do
+    //In toa do bang
     for (int i = 1;i <= 12;i++) {
         SetCursorPosition(9, 6 + 2*i);
-        cout << setw(2) << i;
+        cout << i;
     }
 
-    SetCursorPosition(11, 32);
-    for (int i = 1;i <= 12;i++) {
-        cout << setw(4) << i;
-    }
-
+    SetCursorPosition(14, 32);
+    for (int i = 1;i <= 9;i++) cout << i << "   ";
+    for (int i = 10; i <= 12; i++) cout << i << "  ";
 }
 
 void GameInterface() {

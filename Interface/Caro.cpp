@@ -48,8 +48,11 @@ int main()
             break;
 
         case 1://New Game
+            if (Music == true) mciSendString(L"play game_start.wav", NULL, 0, NULL);
+
+        Replay:
             ResetData();
-        NewGame:
+        LoadGame:
             system("cls");
             LoadingScreen();
             DrawBoard(12, 7, 12, 12);
@@ -60,8 +63,10 @@ int main()
 
             LoadHistory();
 
-            if (moves.empty())
+            if (moves.empty()) {
+                XMark();
                 SetCursorPosition(34, 18);
+            }
             else {
                 Moving lastMove = moves.back();
                 if (moves.size() % 2 == 0) {
@@ -132,21 +137,33 @@ int main()
                 else GameMove(Result, c);
                 if (Result == 1) {
                     for (int i = 0; i < winMoves.size(); i++) {
-                        SetCursorPosition(winMoves[i].coordX, winMoves[i].coordY);
-                        cout << "+";
+                        SetCursorPosition(winMoves[i].coordX - 1, winMoves[i].coordY);
+                        setColor(7, 5);
+                        cout << ANSI_Blink << " X ";
+                        setColor(15, 1);
                     }
                     Sleep(1500);
-                    Blank(76, 0, 71, 39);
+                    CursorState(false);
+                    Blank(74, 0, 71, 38);
                     XWin();
+                    Sleep(1500);
+
+                    goto Replay;
                 }
                 else if (Result == 2) {
                     for (int i = 0; i < winMoves.size(); i++) {
-                        SetCursorPosition(winMoves[i].coordX, winMoves[i].coordY);
-                        cout << "+";
+                        SetCursorPosition(winMoves[i].coordX - 1, winMoves[i].coordY);
+                        setColor(7, 5);
+                        cout << ANSI_Blink << " O ";
+                        setColor(15, 1);
                     }
                     Sleep(1500);
-                    Blank(76, 0, 71, 39);
+                    CursorState(false);
+                    Blank(74, 0, 71, 38);
                     OWin();
+                    Sleep(1500);
+
+                    goto Replay;
                 }
             }
             break;
@@ -168,7 +185,7 @@ int main()
                         //Ham Load
                         LoadFile(fileName[opt]);
                         opt = 1;
-                        goto NewGame;
+                        goto LoadGame;
                         break;
                     case 2:
                         SetCursorPosition(55, 19);
