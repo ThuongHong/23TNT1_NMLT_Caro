@@ -14,7 +14,7 @@ void ResetData() {
     Moves = 0;
 }
 
-int isEnd(int row_move, int col_move, int state) {
+int isWin(int row_move, int col_move, int state) {
     if (state == 0) return 0;
     int row = row_move, col = col_move;
     int coordX0 = (col + 4) * 4 - 2, coordY0 = row * 2 + 8, coordXi, coordYi;
@@ -140,6 +140,13 @@ int isEnd(int row_move, int col_move, int state) {
     return 0; // The game hasn't ended yet
 }
 
+int isDraw() {
+    if (Moves == BOARD_SIZE * BOARD_SIZE) {
+        return true;
+    }
+    return false;
+}
+
 void GameMove(int& result, int c) {
     result = 0;
     int b = (coord.X + 2) / 4 - 4, a = (coord.Y - 8) / 2;
@@ -176,7 +183,7 @@ void GameMove(int& result, int c) {
             SetCursorPosition(coord.X, coord.Y);
             moves.push_back({ a, b, coord.X, coord.Y });
             OMark();
-            if (isEnd(a, b, _POINT[a][b]) == 1) result = 1;
+            if (isWin(a, b, _POINT[a][b]) == 1) result = 1;
             MoveHistory();
             break;
         case 'r':
@@ -225,7 +232,7 @@ void GameMove(int& result, int c) {
             SetCursorPosition(coord.X, coord.Y);
             moves.push_back({ a, b, coord.X, coord.Y });
             XMark();
-            if (isEnd(a, b, _POINT[a][b]) == 2) result = 2;
+            if (isWin(a, b, _POINT[a][b]) == 2) result = 2;
             MoveHistory();
             break;
         case 'r':
@@ -287,3 +294,498 @@ void LoadHistory() {
         }
     }
 }
+
+int my_spot = 2, enemy_spot = 1;
+long defensePoint[7] = { 0, 1, 9, 81, 729, 6561, 59049 };
+long attackPoint[7] = { 0, 3, 24, 192, 1536, 12288, 98304 };
+
+Moving findBestMove() {
+
+	Moving bestMove;
+	bestMove.x = 1;
+	bestMove.y = 1;
+	long moveMaxVal = 0;
+
+	for (int i = 0; i < BOARD_SIZE; i++) {
+
+		for (int j = 0; j < BOARD_SIZE; j++) {
+
+			if (_POINT[i][j] == 0) {
+
+				long attackVal
+					= getVerticalAttackVal(i, j)
+					+ getHorizontalAttackVal(i, j)
+					+ getMainDiagonalAttackVal(i, j)
+					+ getSemiDiagonalAttackVal(i, j);
+
+				long defenseVal
+					= getVerticalDefenseVal(i, j)
+					+ getHorizontalDefenseVal(i, j)
+					+ getMainDiagonalDefenseVal(i, j)
+					+ getSemiDiagonalDefenseVal(i, j);
+
+				long tempVal = max(attackVal, defenseVal);
+				if (moveMaxVal < tempVal) {
+
+					moveMaxVal = tempVal;
+                    bestMove.x = i;
+                    bestMove.y = j;
+                    bestMove.coordX = (j + 4) * 4 - 2;
+                    bestMove.coordY = i * 2 + 8;
+
+				}
+			}
+		}
+	}
+
+	return bestMove;
+}
+
+long getVerticalAttackVal(int curRow, int curCol) {
+
+	long totalVal = 0;
+	int allies = 0;
+	int enemies = 0;
+
+	for (int i = 1; i < 6 && curRow + i < BOARD_SIZE; i++) {
+
+		if (_POINT[curRow + i][curCol] == my_spot) {
+
+			allies++;
+		}
+		else if (_POINT[curRow + i][curCol] == enemy_spot) {
+
+			enemies++;
+			break;
+		}
+		else {
+
+			break;
+		}
+	}
+
+	for (int i = 1; i < 6 && curRow - i >= 0; i++) {
+
+		if (_POINT[curRow - i][curCol] == my_spot) {
+
+			allies++;
+		}
+		else if (_POINT[curRow - i][curCol] == enemy_spot) {
+
+			enemies++;
+			break;
+		}
+		else {
+
+			break;
+		}
+	}
+
+
+	totalVal -= defensePoint[enemies];
+	totalVal += attackPoint[allies];
+
+	return totalVal;
+}
+long getHorizontalAttackVal(int curRow, int curCol) {
+
+	long totalVal = 0;
+	int allies = 0;
+	int enemies = 0;
+
+	for (int i = 1; i < 6 && curCol + i < BOARD_SIZE; i++) {
+
+		if (_POINT[curRow][curCol + i] == my_spot) {
+
+			allies++;
+		}
+		else if (_POINT[curRow][curCol + i] == enemy_spot) {
+
+			enemies++;
+			break;
+		}
+		else {
+
+			break;
+		}
+	}
+
+	for (int i = 1; i < 6 && curCol - i >= 0; i++) {
+
+		if (_POINT[curRow][curCol - i] == my_spot) {
+
+			allies++;
+		}
+		else if (_POINT[curRow][curCol - i] == enemy_spot) {
+
+			enemies++;
+			break;
+		}
+		else {
+
+			break;
+		}
+	}
+
+
+	totalVal -= defensePoint[enemies + 1];
+	totalVal += attackPoint[allies];
+
+	return totalVal;
+}
+long getMainDiagonalAttackVal(int curRow, int curCol) {
+
+	long totalVal = 0;
+	int allies = 0;
+	int enemies = 0;
+
+	for (int i = 1; i < 6 && curRow + i < BOARD_SIZE && curCol + i < BOARD_SIZE; i++) {
+
+		if (_POINT[curRow + i][curCol + i] == my_spot) {
+
+			allies++;
+		}
+		else if (_POINT[curRow + i][curCol + i] == enemy_spot) {
+
+			enemies++;
+			break;
+		}
+		else {
+
+			break;
+		}
+	}
+
+	for (int i = 1; i < 6 && curRow - i >= 0 && curCol - i >= 0; i++) {
+
+		if (_POINT[curRow - i][curCol - i] == my_spot) {
+
+			allies++;
+		}
+		else if (_POINT[curRow - i][curCol - i] == enemy_spot) {
+
+			enemies++;
+			break;
+		}
+		else {
+
+			break;
+		}
+	}
+
+
+	totalVal -= defensePoint[enemies + 1];
+	totalVal += attackPoint[allies];
+
+	return totalVal;
+}
+long getSemiDiagonalAttackVal(int curRow, int curCol) {
+
+	long totalVal = 0;
+	int allies = 0;
+	int enemies = 0;
+
+	for (int i = 1; i < 6 && curRow - i >= 0 && curCol + i < BOARD_SIZE; i++) {
+
+		if (_POINT[curRow - i][curCol + i] == my_spot) {
+
+			allies++;
+		}
+		else if (_POINT[curRow - i][curCol + i] == enemy_spot) {
+
+			enemies++;
+			break;
+		}
+		else {
+
+			break;
+		}
+	}
+
+	for (int i = 1; i < 6 && curRow + i < BOARD_SIZE && curCol - i >= 0; i++) {
+
+		if (_POINT[curRow + i][curCol - i] == my_spot) {
+
+			allies++;
+		}
+		else if (_POINT[curRow + i][curCol - i] == enemy_spot) {
+
+			enemies++;
+			break;
+		}
+		else {
+
+			break;
+		}
+	}
+
+
+	totalVal -= defensePoint[enemies + 1];
+	totalVal += attackPoint[allies];
+
+	return totalVal;
+}
+
+long getVerticalDefenseVal(int curRow, int curCol) {
+
+	long totalVal = 0;
+	int allies = 0;
+	int enemies = 0;
+
+	for (int i = 1; i < 6 && curRow + i < BOARD_SIZE; i++) {
+
+		if (_POINT[curRow + i][curCol] == my_spot) {
+
+			allies++;
+			break;
+		}
+		else if (_POINT[curRow + i][curCol] == enemy_spot) {
+
+			enemies++;
+		}
+		else {
+
+			break;
+		}
+	}
+
+	for (int i = 1; i < 6 && curRow - i >= 0; i++) {
+
+		if (_POINT[curRow - i][curCol] == my_spot) {
+
+			allies++;
+			break;
+		}
+		else if (_POINT[curRow - i][curCol] == enemy_spot) {
+
+			enemies++;
+		}
+		else {
+
+			break;
+		}
+	}
+
+
+	totalVal += defensePoint[enemies];
+	//totalVal += attackPoint[allies];
+
+	return totalVal;
+}
+long getHorizontalDefenseVal(int curRow, int curCol) {
+
+	long totalVal = 0;
+	int allies = 0;
+	int enemies = 0;
+
+	for (int i = 1; i < 6 && curCol + i < BOARD_SIZE; i++) {
+
+		if (_POINT[curRow][curCol + i] == my_spot) {
+
+			allies++;
+			break;
+		}
+		else if (_POINT[curRow][curCol + i] == enemy_spot) {
+
+			enemies++;
+		}
+		else {
+
+			break;
+		}
+	}
+
+	for (int i = 1; i < 6 && curCol - i >= 0; i++) {
+
+		if (_POINT[curRow][curCol - i] == my_spot) {
+
+			allies++;
+			break;
+		}
+		else if (_POINT[curRow][curCol - i] == enemy_spot) {
+
+			enemies++;
+		}
+		else {
+
+			break;
+		}
+	}
+
+
+	totalVal += defensePoint[enemies];
+
+	return totalVal;
+}
+long getMainDiagonalDefenseVal(int curRow, int curCol) {
+
+	long totalVal = 0;
+	int allies = 0;
+	int enemies = 0;
+
+	for (int i = 1; i < 6 && curRow + i < BOARD_SIZE && curCol + i < BOARD_SIZE; i++) {
+
+		if (_POINT[curRow + i][curCol + i] == my_spot) {
+
+			allies++;
+			break;
+		}
+		else if (_POINT[curRow + i][curCol + i] == enemy_spot) {
+
+			enemies++;
+		}
+		else {
+
+			break;
+		}
+	}
+
+	for (int i = 1; i < 6 && curRow - i >= 0 && curCol - i >= 0; i++) {
+
+		if (_POINT[curRow - i][curCol - i] == my_spot) {
+
+			allies++;
+			break;
+		}
+		else if (_POINT[curRow - i][curCol - i] == enemy_spot) {
+
+			enemies++;
+		}
+		else {
+
+			break;
+		}
+	}
+
+
+	totalVal += defensePoint[enemies];
+
+	return totalVal;
+}
+long getSemiDiagonalDefenseVal(int curRow, int curCol) {
+
+	long totalVal = 0;
+	int allies = 0;
+	int enemies = 0;
+
+	for (int i = 1; i < 6 && curRow - i >= 0 && curCol + i < BOARD_SIZE; i++) {
+
+		if (_POINT[curRow - i][curCol + i] == my_spot) {
+
+			allies++;
+			break;
+		}
+		else if (_POINT[curRow - i][curCol + i] == enemy_spot) {
+
+			enemies++;
+		}
+		else {
+
+			break;
+		}
+	}
+
+	for (int i = 1; i < 6 && curRow + i < BOARD_SIZE && curCol - i >= 0; i++) {
+
+		if (_POINT[curRow + i][curCol - i] == my_spot) {
+
+			allies++;
+			break;
+		}
+		else if (_POINT[curRow + i][curCol - i] == enemy_spot) {
+
+			enemies++;
+		}
+		else {
+
+			break;
+		}
+	}
+
+
+	totalVal += defensePoint[enemies];
+
+	return totalVal;
+}
+
+void ComputerPlay(int& result, int c) {
+    result = 0;
+    int b = (coord.X + 2) / 4 - 4, a = (coord.Y - 8) / 2;
+    short Player = Moves % 2; //X Player
+
+    if (Player == 0) {
+        switch (c) {
+        case 'w':
+            if (coord.Y - 2 < 8) break;
+            SetCursorPosition(coord.X, coord.Y - 2);
+            GetCursorPosition();
+            break;
+        case 's':
+            if (coord.Y + 2 > 30) break;
+            SetCursorPosition(coord.X, coord.Y + 2);
+            GetCursorPosition();
+            break;
+        case 'a':
+            if (coord.X - 4 < 14) break;
+            SetCursorPosition(coord.X - 4, coord.Y);
+            GetCursorPosition();
+            break;
+        case 'd':
+            if (coord.X + 4 > 59) break;
+            SetCursorPosition(coord.X + 4, coord.Y);
+            GetCursorPosition();
+            break;
+        case 32:
+            if (_POINT[a][b] != 0) break;
+            _POINT[a][b] = 1;
+            cout << ANSI_Blue << "X" << ANSI_Black;
+            Moves++;
+            if (Sound == true) mciSendString(L"play select.wav", NULL, 0, NULL);
+            SetCursorPosition(coord.X, coord.Y);
+            moves.push_back({ a, b, coord.X, coord.Y });
+            OMark();
+            if (isWin(a, b, _POINT[a][b]) == 1) result = 1;
+            MoveHistory();
+
+            Moving ComputerMove = findBestMove();
+            _POINT[ComputerMove.x][ComputerMove.y] = 2;
+            SetCursorPosition(ComputerMove.coordX, ComputerMove.coordY);
+            cout << ANSI_Red << "O" << ANSI_Black;
+            Moves++;
+            if (Sound == true) mciSendString(L"play select.wav", NULL, 0, NULL);
+            moves.push_back({ ComputerMove.x, ComputerMove.y, ComputerMove.coordX, ComputerMove.coordY });
+            XMark();
+            if (isWin(ComputerMove.x, ComputerMove.y, _POINT[ComputerMove.x][ComputerMove.y]) == 2) result = 2;
+            MoveHistory();
+
+
+            break;
+        case 'r':
+            if (moves.size() == 0) break;
+            Moving temp = moves.back();
+            moves.pop_back();
+            _POINT[temp.x][temp.y] = 0;
+            SetCursorPosition(temp.coordX, temp.coordY);
+            GetCursorPosition();
+            cout << " ";
+            OMark();
+            Moves--;
+            SetCursorPosition(temp.coordX, temp.coordY);
+            MoveHistory();
+            break;
+        }
+    }
+    //else {
+    //    Moving ComputerMove = findBestMove();
+    //    _POINT[ComputerMove.x][ComputerMove.y] = 2;
+    //    SetCursorPosition(ComputerMove.coordX, ComputerMove.coordY);
+    //    cout << ANSI_Red << "O" << ANSI_Black;
+    //    Moves++;
+    //    if (Sound == true) mciSendString(L"play select.wav", NULL, 0, NULL);
+    //    moves.push_back({ ComputerMove.x, ComputerMove.y, ComputerMove.coordX, ComputerMove.coordY });
+    //    XMark();
+    //    if (isWin(ComputerMove.x, ComputerMove.y, _POINT[ComputerMove.x][ComputerMove.y]) == 2) result = 2;
+    //    MoveHistory();
+    //}
+}
+

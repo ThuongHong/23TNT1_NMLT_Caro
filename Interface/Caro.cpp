@@ -134,7 +134,10 @@ int main()
                         break;
                     }
                 }
-                else GameMove(Result, c);
+                else {
+                    //ComputerPlay(Result, c);
+                    GameMove(Result, c);
+                }
                 if (Result == 1) {
                     for (int i = 0; i < winMoves.size(); i++) {
                         SetCursorPosition(winMoves[i].coordX - 1, winMoves[i].coordY);
@@ -164,6 +167,9 @@ int main()
                     Sleep(1500);
 
                     goto Replay;
+                }
+                else if (isDraw()) {
+                    cout << "Hoa";
                 }
             }
             break;
