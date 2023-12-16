@@ -163,8 +163,7 @@ int main()
                     Sleep(1500);
                     CursorState(false);
                     Blank(74, 0, 71, 38);
-                    //OWin();
-                    Draw();
+                    OWin();
                     Sleep(1500);
 
                     goto Replay;
