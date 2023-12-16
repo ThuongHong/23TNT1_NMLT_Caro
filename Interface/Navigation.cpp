@@ -2,29 +2,11 @@
 #include "FileGame.h"
 #include "Graphic.h"
 
-//0. Menu 1. Option New Game
+//0. Menu
+//1. Option New Game
+//2.1 Option Load Game
+//3.1 Option Settings
 void NavigateUpDown(short max) {
-    c = _getch();
-    if (Sound == true) mciSendString(L"play select.wav", NULL, 0, NULL);
-    if (c == 224) c = _getch();
-    switch (c) {
-    case 72: //Up
-        if (opt > 1) opt--;
-        break;
-
-    case 80: //Down
-        if (opt < max) opt++;
-        break;
-
-    case 13: //Enter
-        IsSelected = true;
-        break;
-    }
-}
-
-
-//2. Option Load Game
-void NavigateLoad1(short max) {
     c = _getch();
     if (Sound == true) mciSendString(L"play select.wav", NULL, 0, NULL);
     if (c == 224) c = _getch();
@@ -47,6 +29,7 @@ void NavigateLoad1(short max) {
     }
 }
 
+//2. Option Load Game
 void NavigateLoad2(short max) {
     c = _getch();
     if (Sound == true) mciSendString(L"play select.wav", NULL, 0, NULL);
@@ -67,29 +50,6 @@ void NavigateLoad2(short max) {
 }
 
 //3. Option Settings
-void NavigateSettings1(short max) {
-    c = _getch();
-    if (Sound == true) mciSendString(L"play select.wav", NULL, 0, NULL);
-    if (c == 224) c = _getch();
-    switch (c) {
-    case 72: //Up
-        if (opt > 1) opt--;
-        break;
-
-    case 80: //Down
-        if (opt < max) opt++;
-        break;
-
-    case 13: //Enter
-        IsSelected = true;
-        break;
-
-    case 27: //Esc
-        Esc = true;
-        break;
-    }
-}
-
 void NavigateSettings2(short max) {
     c = _getch();
     if (Sound == true) mciSendString(L"play select.wav", NULL, 0, NULL);

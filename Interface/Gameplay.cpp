@@ -287,3 +287,30 @@ void LoadHistory() {
         }
     }
 }
+
+void PreviewHistory() {
+    PreviewBox();
+    for (int i = 0; i < moves.size(); i++) {
+        if (i % 2 == 0)
+            _POINT[moves[i].x][moves[i].y] = 1;
+        else
+            _POINT[moves[i].x][moves[i].y] = 2;
+
+        int point = _POINT[moves[i].x][moves[i].y];
+        switch (point)
+        {
+        case 1:
+            SetCursorPosition(63 + 2 * moves[i].y, 21 + moves[i].x);
+            cout << ANSI_Blue << "X" << ANSI_Black;
+            break;
+        case 2:
+            SetCursorPosition(63 + 2 * moves[i].y, 21 + moves[i].x);
+            cout << ANSI_Red << "O" << ANSI_Black;
+            break;
+
+        default:
+            break;
+        }
+    }
+    ResetData();
+}

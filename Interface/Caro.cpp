@@ -31,28 +31,41 @@ int main()
     PreSettings();
     PlaySound(TEXT("theme.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
     while (!Exit) {
-        Esc = false;
-        IsSelected = false;
-        //Blank(69, 13, 72, 24);
         switch (opt) {
 
         case 0://Menu
             system("cls");
             LoadingScreen();
+            Esc = false;
+            IsSelected = false;
             opt = 1;
             GameTitle();
             MenuX();
             MenuO();
-            //Loading();
             while (!IsSelected) MenuSelection();
             break;
 
         case 1://New Game
+            IsSelected = false;
+            opt = 1;
             if (Music == true) mciSendString(L"play game_start.wav", NULL, 0, NULL);
+            Blank(67, 20, 13, 16);
+            ContentBox(62, 23, 22, 7);
+            while (!IsSelected && !Esc) {
+                SelectGamemode(Gamemode);
+            }
+            if (Esc) {
+                opt = 0;
+                break;
+            }
+
 
         Replay:
             ResetData();
         LoadGame:
+            IsSelected = false;
+            Esc = false;
+            opt = 1;
             system("cls");
             LoadingScreen();
             DrawBoard(12, 7, 12, 12);
@@ -60,7 +73,6 @@ int main()
             CursorState(true);
             ScoreBox();
             MoveHistory();
-
             LoadHistory();
 
             if (moves.empty()) {
@@ -100,7 +112,7 @@ int main()
                         CursorState(true);
                     }
                     else if (opt == 2) {
-                        Blank(119, 8, 17, 8);
+                        Blank(119, 8, 17, 9);
                         SaveBox();
                         SetCursorPosition(125, 13);
                         CursorState(true);
@@ -112,15 +124,14 @@ int main()
                                 Blank(116, 10, 23, 5);
                                 SetCursorPosition(a, b);
                                 IsSelected = false;
-                                opt = 1;
                             }
                             else if (c == 13) {
                                 CursorState(false);
                                 Blank(117, 11, 21, 2);
-                                SetCursorPosition(117, 12);
+                                SetCursorPosition(117, 11);
                                 cout << "Successfully Save !!!";
                                 Sleep(1500);
-                                Blank(116, 10, 23, 5);
+                                Blank(115, 10, 24, 5);
                                 SetCursorPosition(a, b);
                                 IsSelected = false;
                                 opt = 1;
@@ -135,35 +146,17 @@ int main()
                     }
                 }
                 else GameMove(Result, c);
-                if (Result == 1) {
-                    for (int i = 0; i < winMoves.size(); i++) {
-                        SetCursorPosition(winMoves[i].coordX - 1, winMoves[i].coordY);
-                        setColor(7, 5);
-                        cout << ANSI_Blink << " X ";
-                        setColor(15, 1);
+                if (Result != 0) {
+                    WinEffect();
+                    Sleep(1500);
+                    ReplayBox();
+                    opt = 1;
+                    while (!IsSelected) Replay();
+                    if (opt == 1) goto Replay;
+                    else {
+                        opt = 0;
+                        break;
                     }
-                    Sleep(1500);
-                    CursorState(false);
-                    Blank(74, 0, 71, 38);
-                    XWin();
-                    Sleep(1500);
-
-                    goto Replay;
-                }
-                else if (Result == 2) {
-                    for (int i = 0; i < winMoves.size(); i++) {
-                        SetCursorPosition(winMoves[i].coordX - 1, winMoves[i].coordY);
-                        setColor(7, 5);
-                        cout << ANSI_Blink << " O ";
-                        setColor(15, 1);
-                    }
-                    Sleep(1500);
-                    CursorState(false);
-                    Blank(74, 0, 71, 38);
-                    OWin();
-                    Sleep(1500);
-
-                    goto Replay;
                 }
             }
             break;
@@ -174,8 +167,12 @@ int main()
             LoadBox();
             LoadGame();
             opt = 1;
+            IsSelected = false;
 
             while (!Esc) {
+                getFileName();
+                LoadFile(fileName[opt]);
+                PreviewHistory();
                 LoadSelection1();
                 if (IsSelected) {
                     subopt = 1;
@@ -202,15 +199,15 @@ int main()
                             else if (c == 13) {
                                 //Ham Rename
                                 if (RenameOk == true) {
-                                    SetCursorPosition(55, 19);
+                                    SetCursorPosition(52, 19);
                                     cout << "Successfully Renamed !!!";
                                 }
                                 else {
-                                    SetCursorPosition(55, 19);
+                                    SetCursorPosition(51, 19);
                                     cout << "Unsuccessfully Renamed !!!";
                                 }
                                 Sleep(1500);
-                                Blank(55, 19, 25, 1);
+                                Blank(51, 19, 26, 1);
                                 CursorState(false);
                                 break;
                             }
@@ -239,9 +236,8 @@ int main()
                     default:
                         break;
                     }
+                Blank(97, 19, 6, 13);
                 }
-                //Chinh sua lai Blank sau khi them cac ham load, delete
-                Blank(94, 19, 6, 12);
             }
             opt = 0;
             break;
@@ -259,14 +255,15 @@ int main()
             while (!Esc)
             {    
                 SettingsSelection1();
+                if (Esc) break;
                 while (IsSelected) {
                     SettingsSelection2();
                     if (Music == false) cout << ANSI_Grey;
                     MusicNote(); cout << ANSI_Black;
                     if (Sound == false) cout << ANSI_Grey;
                     SoundEffect(); cout << ANSI_Black;
+                    if (!IsSelected) Blank(73, 23, 8, 3);
                 }
-                Blank(73, 23, 8, 3);
             }
             opt = 0;
             break;

@@ -28,3 +28,4 @@ void MoveHistory();
 
 void LoadHistory();
 
+void PreviewHistory();

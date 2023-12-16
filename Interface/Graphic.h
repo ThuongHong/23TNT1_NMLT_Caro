@@ -71,6 +71,8 @@ void ReplayBox();
 //2. Option Load Game
 void LoadBox();
 
+void PreviewBox();
+
 //3. Option Settings
 
 //4. Option About
