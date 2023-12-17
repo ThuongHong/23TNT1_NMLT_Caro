@@ -295,6 +295,34 @@ void LoadHistory() {
     }
 }
 
+
+void PreviewHistory() {
+    PreviewBox();
+    for (int i = 0; i < moves.size(); i++) {
+        if (i % 2 == 0)
+            _POINT[moves[i].x][moves[i].y] = 1;
+        else
+            _POINT[moves[i].x][moves[i].y] = 2;
+
+        int point = _POINT[moves[i].x][moves[i].y];
+        switch (point)
+        {
+        case 1:
+            SetCursorPosition(63 + 2 * moves[i].y, 21 + moves[i].x);
+            cout << ANSI_Blue << "X" << ANSI_Black;
+            break;
+        case 2:
+            SetCursorPosition(63 + 2 * moves[i].y, 21 + moves[i].x);
+            cout << ANSI_Red << "O" << ANSI_Black;
+            break;
+
+        default:
+            break;
+        }
+    }
+    ResetData();
+}
+
 int my_spot = 2, enemy_spot = 1;
 long defensePoint[7] = { 0, 1, 9, 81, 729, 6561, 59049 };
 long attackPoint[7] = { 0, 3, 24, 192, 1536, 12288, 98304 };
@@ -775,17 +803,6 @@ void ComputerPlay(int& result, int c) {
             break;
         }
     }
-    //else {
-    //    Moving ComputerMove = findBestMove();
-    //    _POINT[ComputerMove.x][ComputerMove.y] = 2;
-    //    SetCursorPosition(ComputerMove.coordX, ComputerMove.coordY);
-    //    cout << ANSI_Red << "O" << ANSI_Black;
-    //    Moves++;
-    //    if (Sound == true) mciSendString(L"play select.wav", NULL, 0, NULL);
-    //    moves.push_back({ ComputerMove.x, ComputerMove.y, ComputerMove.coordX, ComputerMove.coordY });
-    //    XMark();
-    //    if (isWin(ComputerMove.x, ComputerMove.y, _POINT[ComputerMove.x][ComputerMove.y]) == 2) result = 2;
-    //    MoveHistory();
-    //}
 }
+
 

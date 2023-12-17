@@ -13,7 +13,7 @@ string InputFileName(int x, int y) {
     SetCursorPosition(x, y);
     while (true) {
         c = _getch();
-        if (c == 13) {
+        if (c == 13 && count > 0) {
             return s;
         }
         if (c == 27) {

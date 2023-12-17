@@ -222,6 +222,21 @@ void MenuSelection() {
 }
 
 //1. Option New Game
+int Gamemode = 0; //1. P vs P   2. P vs Bot 
+
+void SelectGamemode(int& Gamemode) {
+    SetCursorPosition(65, 24);
+    cout << "Select game mode";
+    SetCursorPosition(65, 26);
+    if (opt == 1) cout << ANSI_Green;
+    cout << "Player vs Player" << ANSI_Black;
+    SetCursorPosition(66, 28);
+    if (opt == 2) cout << ANSI_Green;
+    cout << "Player vs Bot" << ANSI_Black;
+    NavigateUpDown(2);
+    Gamemode = opt;
+}
+
 void GameMenuSelection() {
     ContentBox(119, 8, 16, 9);
     SetCursorPosition(124, 10);
@@ -238,17 +253,32 @@ void GameMenuSelection() {
     NavigateUpDown(3);
 }
 
-//void Replay() {
-//    opt = 1;
-//    ReplayBox();
-//    NavigateLeftRight(2);
-//    SetCursorPosition(122, 10);
-//    if (opt == 1) cout << ANSI_Green;
-//    cout << "Yes"<<ANSI_Black;
-//    SetCursorPosition(131, 10);
-//    if (opt == 2) cout << ANSI_Green;
-//    cout << "No" << ANSI_Black;
-//}
+void Replay() {
+    SetCursorPosition(105, 6);
+    if (opt == 1) cout << ANSI_Green;
+    cout << "Yes" << ANSI_Black;
+    SetCursorPosition(114, 6);
+    if (opt == 2) cout << ANSI_Green;
+    cout << "No" << ANSI_Black;
+    NavigateLeftRight(2);
+}
+
+void WinEffect() {
+    string a;
+    if (Result == 1) a = " X ";
+    else a = " O ";
+    CursorState(false);
+    for (int i = 0; i < winMoves.size(); i++) {
+        SetCursorPosition(winMoves[i].coordX - 1, winMoves[i].coordY);
+        setColor(7, 5);
+        cout << ANSI_Blink << a;
+        setColor(15, 1);
+    }
+    Sleep(1500);
+    Blank(75, 0, 72, 39);
+    if (Result == 1) XWin();
+    else OWin();
+}
 
 //2. Option Load Game
 void LoadSelection1() {
@@ -273,27 +303,30 @@ void LoadSelection1() {
     //if (opt == 6) cout << ANSI_Green;
     //cout << "6. " << fileName[6] << ANSI_Black;
     for (int i = 1; i <= 6; i++) {
-        SetCursorPosition(55, 19 + 2 * i);
+        SetCursorPosition(40, 19 + 2 * i);
         if (opt == i) cout << ANSI_Green;
-        if (fileName[i].length() > 0) cout << fileName[i] << "           ";
-        else cout << i << ".            ";
+        if (fileName[i].length() > 0) {
+            cout << fileName[i];
+            for (int i = 0;i < 9 - fileName[i].length();i++) cout << " ";
+        }
+        else cout << i << ".           ";
         cout << ANSI_Black;
     }
 
-    NavigateLoad1(6);
+    NavigateUpDown(6);
 }
 
 void LoadSelection2() {
-    SetCursorPosition(95, 19);
+    SetCursorPosition(98, 19);
     if (subopt == 1) cout << ANSI_Green;
     cout << "Load"<<ANSI_Black;
-    SetCursorPosition(94, 23);
+    SetCursorPosition(97, 23);
     if (subopt == 2) cout << ANSI_Green;
     cout << "Rename" << ANSI_Black;
-    SetCursorPosition(94, 27);
+    SetCursorPosition(97, 27);
     if (subopt == 3) cout << ANSI_Green;
     cout << "Delete" << ANSI_Black;
-    SetCursorPosition(95, 31);
+    SetCursorPosition(98, 31);
     if (subopt == 4) cout << ANSI_Green;
     cout << "Back" << ANSI_Black;
 
@@ -311,7 +344,7 @@ void SettingsSelection1() {
     SetCursorPosition(66, 25);
     cout << "MUSIC:" << ANSI_Black;
     
-    NavigateSettings1(2);
+    NavigateUpDown(2);
 }
 
 void SettingsSelection2() {

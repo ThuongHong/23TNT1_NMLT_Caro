@@ -50,11 +50,15 @@ extern bool Music;
 void MenuSelection();
 
 //1. Option New Game
-void GameInterface();
+extern int Gamemode;
+
+void SelectGamemode(int& Gamemode);
 
 void GameMenuSelection();
 
 void Replay();
+
+void WinEffect();
 
 //2. Option Load Game
 void LoadSelection1();

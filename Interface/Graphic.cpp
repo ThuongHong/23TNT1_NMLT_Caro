@@ -1428,7 +1428,7 @@ void Help()
 
 // Ham ve hieu ung X thang
 void XWin() {
-    SetCursorPosition(84, 6); // row 1
+    SetCursorPosition(94, 10); // row 1
     setColor(1, 1); cout << "..";
     setColor(15, 15); cout << "...";
     setColor(1, 1); cout << "..";
@@ -1448,7 +1448,7 @@ void XWin() {
     setColor(1, 1); cout << "..";
 
     // Line 2
-    SetCursorPosition(84, 7);
+    SetCursorPosition(94, 11);
     setColor(1, 1); cout << "..";
     setColor(15, 15); cout << "...";
     setColor(1, 1); cout << "..";
@@ -1468,7 +1468,7 @@ void XWin() {
     setColor(1, 1); cout << "..";
 
     // Line 3
-    SetCursorPosition(84, 8);
+    SetCursorPosition(94, 12);
     setColor(15, 15); cout << ".";
     setColor(1, 1); cout << "..";
     setColor(15, 15); cout << ".";
@@ -1489,7 +1489,7 @@ void XWin() {
     setColor(1, 1); cout << "..";
 
     // Line 4
-    SetCursorPosition(84, 9);
+    SetCursorPosition(94, 13);
     setColor(15, 15); cout << "..";
     setColor(1, 1); cout << "...";
     setColor(15, 15); cout << "....";
@@ -1508,7 +1508,7 @@ void XWin() {
     setColor(1, 1); cout << "..";
 
     // Line 5
-    SetCursorPosition(84, 10);
+    SetCursorPosition(94, 14);
     setColor(15, 15); cout << "...";
     setColor(1, 1); cout << ".";
     setColor(15, 15); cout << ".....";
@@ -1527,7 +1527,7 @@ void XWin() {
     setColor(1, 1); cout << "..";
 
     // Line 6
-    SetCursorPosition(84, 11);
+    SetCursorPosition(94, 15);
     setColor(15, 15); cout << "..";
     setColor(1, 1); cout << "...";
     setColor(15, 15); cout << "....";
@@ -1546,7 +1546,7 @@ void XWin() {
     setColor(1, 1); cout << "..";
 
     // Line 7
-    SetCursorPosition(84, 12);
+    SetCursorPosition(94, 16);
     setColor(15, 15); cout << ".";
     setColor(1, 1); cout << "..";
     setColor(15, 15); cout << ".";
@@ -1562,7 +1562,7 @@ void XWin() {
     setColor(15, 15); cout << "...";
 
     // Line 8
-    SetCursorPosition(84, 13);
+    SetCursorPosition(94, 17);
     setColor(1, 1); cout << "..";
     setColor(15, 15); cout << "...";
     setColor(1, 1); cout << "..";
@@ -1580,7 +1580,7 @@ void XWin() {
     setColor(1, 1); cout << "..";
 
     // Line 9
-    SetCursorPosition(84, 14);
+    SetCursorPosition(94, 18);
     setColor(1, 1); cout << "..";
     setColor(15, 15); cout << "...";
     setColor(1, 1); cout << "..";
@@ -1598,13 +1598,13 @@ void XWin() {
     setColor(1, 1); cout << "..";
 
     // Line 12
-    SetCursorPosition(84, 15);
+    SetCursorPosition(94, 19);
     setColor(15, 15);
     for (int i = 0; i < 34; i++)
         cout << ".";
 
     // Line 13
-    SetCursorPosition(84, 16);
+    SetCursorPosition(94, 20);
     setColor(15, 15); cout << "...";
     setColor(6, 6); cout << ".";
     setColor(15, 15); cout << ".......";
@@ -1612,7 +1612,7 @@ void XWin() {
     setColor(15, 15); cout << "............";
 
     // Line 14
-    SetCursorPosition(84, 17);
+    SetCursorPosition(94, 21);
     setColor(15, 15); cout << "..";
     setColor(6, 6); cout << "...";
     setColor(15, 15); cout << "....";
@@ -1624,7 +1624,7 @@ void XWin() {
     setColor(15, 15); cout << "..........";
 
     // Line 15
-    SetCursorPosition(84, 18);
+    SetCursorPosition(94, 22);
     setColor(15, 15); cout << "...";
     setColor(6, 6); cout << ".";
     setColor(15, 15); cout << "....";
@@ -1644,7 +1644,7 @@ void XWin() {
     setColor(15, 15); cout << "....";
 
     // Line 16
-    SetCursorPosition(84, 19);
+    SetCursorPosition(94, 23);
     setColor(15, 15); cout << ".......";
     setColor(0, 0); cout << ".";
     setColor(14, 14); cout << ".";
@@ -1662,7 +1662,7 @@ void XWin() {
     setColor(15, 15); cout << "...";
 
     // Line 17
-    SetCursorPosition(84, 20);
+    SetCursorPosition(94, 24);
     setColor(15, 15); cout << ".......";
     setColor(0, 0); cout << ".";
     setColor(14, 14); cout << ".";
@@ -1682,7 +1682,7 @@ void XWin() {
     setColor(15, 15); cout << "....";
 
     // Line 18
-    SetCursorPosition(84, 21);
+    SetCursorPosition(94, 25);
     setColor(15, 15); cout << ".......";
     setColor(0, 0); cout << ".";
     setColor(6, 6); cout << ".";
@@ -1700,7 +1700,7 @@ void XWin() {
     setColor(15, 15); cout << "........";
 
     // Line 19
-    SetCursorPosition(84, 22);
+    SetCursorPosition(94, 26);
     setColor(15, 15); cout << ".......";
     setColor(0, 0); cout << ".";
     setColor(6, 6); cout << "..";
@@ -1715,7 +1715,7 @@ void XWin() {
 
 
     // Line 20
-    SetCursorPosition(84, 23);
+    SetCursorPosition(94, 27);
     setColor(15, 15); cout << "........";
     setColor(0, 0); cout << ".";
     setColor(6, 6); cout << ".";
@@ -1730,7 +1730,7 @@ void XWin() {
     setColor(15, 15); cout << ".........";
 
     // Line 21
-    SetCursorPosition(84, 24);
+    SetCursorPosition(94, 28);
     setColor(15, 15); cout << ".........";
     setColor(0, 0); cout << ".";
     setColor(6, 6); cout << ".";
@@ -1745,13 +1745,13 @@ void XWin() {
     setColor(15, 15); cout << "..........";
 
     // Line 22
-    SetCursorPosition(84, 25);
+    SetCursorPosition(94, 29);
     setColor(15, 15); cout << "..........";
     setColor(0, 0); cout << ".............";
     setColor(15, 15); cout << "...........";
 
     // Line 23
-    SetCursorPosition(84, 26);
+    SetCursorPosition(94, 30);
     setColor(15, 15); cout << "....";
     setColor(6, 6); cout << ".";
     setColor(15, 15); cout << ".........";
@@ -1764,7 +1764,7 @@ void XWin() {
     setColor(15, 15); cout << ".......";
 
     // Line 24
-    SetCursorPosition(84, 27);
+    SetCursorPosition(94, 31);
     setColor(15, 15); cout << "...";
     setColor(6, 6); cout << "...";
     setColor(15, 15); cout << "........";
@@ -1777,7 +1777,7 @@ void XWin() {
     setColor(15, 15); cout << "......";
 
     // Line 25
-    SetCursorPosition(84, 28);
+    SetCursorPosition(94, 32);
     setColor(15, 15); cout << "....";
     setColor(6, 6); cout << ".";
     setColor(15, 15); cout << ".........";
@@ -1791,13 +1791,13 @@ void XWin() {
     setColor(15, 15); cout << ".......";
 
     // Line 26
-    SetCursorPosition(84, 29);
+    SetCursorPosition(94, 33);
     setColor(15, 15); cout << "...........";
     setColor(0, 0); cout << "...........";
     setColor(15, 15); cout << "............";
 
     // Line 27
-    SetCursorPosition(84, 30);
+    SetCursorPosition(94, 34);
     setColor(15, 15); cout << "...........";
     setColor(0, 0); cout << ".";
     setColor(14, 14); cout << "....";
@@ -1807,7 +1807,7 @@ void XWin() {
     setColor(15, 15); cout << "............";
 
     // Line 28
-    SetCursorPosition(84, 31);
+    SetCursorPosition(94, 35);
     setColor(15, 15); cout << "...........";
     setColor(0, 0); cout << "...........";
     setColor(15, 15); cout << "............";
@@ -1819,7 +1819,7 @@ void XWin() {
 void OWin() 
 {
     // Line 1
-    SetCursorPosition(84, 6);
+    SetCursorPosition(94, 10);
     setColor(15, 15); cout << ".";
     setColor(4, 4); cout << ".....";
     setColor(15, 15); cout << "...";
@@ -1838,7 +1838,7 @@ void OWin()
     setColor(4, 4); cout << "..";
 
     // Line 2
-    SetCursorPosition(84, 7);
+    SetCursorPosition(94, 11);
     setColor(4, 4); cout << ".......";
     setColor(15, 15); cout << "..";
     setColor(4, 4); cout << "..";
@@ -1856,7 +1856,7 @@ void OWin()
     setColor(4, 4); cout << "..";
 
     // Line 3
-    SetCursorPosition(84, 8);
+    SetCursorPosition(94, 12);
     setColor(4, 4); cout << "..";
     setColor(15, 15); cout << "...";
     setColor(4, 4); cout << "..";
@@ -1876,7 +1876,7 @@ void OWin()
     setColor(4, 4); cout << "..";
 
     // Line 4
-    SetCursorPosition(84, 9);
+    SetCursorPosition(94, 13);
     setColor(4, 4); cout << "..";
     setColor(15, 15); cout << "...";
     setColor(4, 4); cout << "..";
@@ -1896,7 +1896,7 @@ void OWin()
     setColor(4, 4); cout << "..";
 
     // Line 5
-    SetCursorPosition(84, 10);
+    SetCursorPosition(94, 14);
     setColor(4, 4); cout << "..";
     setColor(15, 15); cout << "...";
     setColor(4, 4); cout << "..";
@@ -1916,7 +1916,7 @@ void OWin()
     setColor(4, 4); cout << "..";
 
     // Line 6
-    SetCursorPosition(84, 11);
+    SetCursorPosition(94, 15);
     setColor(4, 4); cout << "..";
     setColor(15, 15); cout << "...";
     setColor(4, 4); cout << "..";
@@ -1936,7 +1936,7 @@ void OWin()
     setColor(4, 4); cout << "..";
 
     // Line 7
-    SetCursorPosition(84, 12);
+    SetCursorPosition(94, 16);
     setColor(4, 4); cout << "..";
     setColor(15, 15); cout << "...";
     setColor(4, 4); cout << "..";
@@ -1951,7 +1951,7 @@ void OWin()
     setColor(15, 15); cout << "...";
 
     // Line 8
-    SetCursorPosition(84, 13);
+    SetCursorPosition(94, 17);
     setColor(4, 4); cout << ".......";
     setColor(15, 15); cout << "..";
     setColor(4, 4); cout << "....";
@@ -1967,7 +1967,7 @@ void OWin()
     setColor(4, 4); cout << "..";
 
     // Line 9
-    SetCursorPosition(84, 14);
+    SetCursorPosition(94, 18);
     setColor(15, 15); cout << ".";
     setColor(4, 4); cout << ".....";
     setColor(15, 15); cout << "....";
@@ -1984,13 +1984,13 @@ void OWin()
     setColor(4, 4); cout << "..";
 
     // Line 12
-    SetCursorPosition(84, 15);
+    SetCursorPosition(94, 19);
     setColor(15, 15);
     for (int i = 0; i < 34; i++)
         cout << ".";
 
     // Line 13
-    SetCursorPosition(84, 16);
+    SetCursorPosition(94, 20);
     setColor(15, 15); cout << "...";
     setColor(6, 6); cout << ".";
     setColor(15, 15); cout << ".......";
@@ -1998,7 +1998,7 @@ void OWin()
     setColor(15, 15); cout << "............";
 
     // Line 14
-    SetCursorPosition(84, 17);
+    SetCursorPosition(94, 21);
     setColor(15, 15); cout << "..";
     setColor(6, 6); cout << "...";
     setColor(15, 15); cout << "....";
@@ -2010,7 +2010,7 @@ void OWin()
     setColor(15, 15); cout << "..........";
 
     // Line 15
-    SetCursorPosition(84, 18);
+    SetCursorPosition(94, 22);
     setColor(15, 15); cout << "...";
     setColor(6, 6); cout << ".";
     setColor(15, 15); cout << "....";
@@ -2030,7 +2030,7 @@ void OWin()
     setColor(15, 15); cout << "....";
 
     // Line 16
-    SetCursorPosition(84, 19);
+    SetCursorPosition(94, 23);
     setColor(15, 15); cout << ".......";
     setColor(0, 0); cout << ".";
     setColor(14, 14); cout << ".";
@@ -2048,7 +2048,7 @@ void OWin()
     setColor(15, 15); cout << "...";
 
     // Line 17
-    SetCursorPosition(84, 20);
+    SetCursorPosition(94, 24);
     setColor(15, 15); cout << ".......";
     setColor(0, 0); cout << ".";
     setColor(14, 14); cout << ".";
@@ -2068,7 +2068,7 @@ void OWin()
     setColor(15, 15); cout << "....";
 
     // Line 18
-    SetCursorPosition(84, 21);
+    SetCursorPosition(94, 25);
     setColor(15, 15); cout << ".......";
     setColor(0, 0); cout << ".";
     setColor(6, 6); cout << ".";
@@ -2086,7 +2086,7 @@ void OWin()
     setColor(15, 15); cout << "........";
 
     // Line 19
-    SetCursorPosition(84, 22);
+    SetCursorPosition(94, 26);
     setColor(15, 15); cout << ".......";
     setColor(0, 0); cout << ".";
     setColor(6, 6); cout << "..";
@@ -2101,7 +2101,7 @@ void OWin()
 
 
     // Line 20
-    SetCursorPosition(84, 23);
+    SetCursorPosition(94, 27);
     setColor(15, 15); cout << "........";
     setColor(0, 0); cout << ".";
     setColor(6, 6); cout << ".";
@@ -2116,7 +2116,7 @@ void OWin()
     setColor(15, 15); cout << ".........";
 
     // Line 21
-    SetCursorPosition(84, 24);
+    SetCursorPosition(94, 28);
     setColor(15, 15); cout << ".........";
     setColor(0, 0); cout << ".";
     setColor(6, 6); cout << ".";
@@ -2131,13 +2131,13 @@ void OWin()
     setColor(15, 15); cout << "..........";
 
     // Line 22
-    SetCursorPosition(84, 25);
+    SetCursorPosition(94, 29);
     setColor(15, 15); cout << "..........";
     setColor(0, 0); cout << ".............";
     setColor(15, 15); cout << "...........";
 
     // Line 23
-    SetCursorPosition(84, 26);
+    SetCursorPosition(94, 30);
     setColor(15, 15); cout << "....";
     setColor(6, 6); cout << ".";
     setColor(15, 15); cout << ".........";
@@ -2150,7 +2150,7 @@ void OWin()
     setColor(15, 15); cout << ".......";
 
     // Line 24
-    SetCursorPosition(84, 27);
+    SetCursorPosition(94, 31);
     setColor(15, 15); cout << "...";
     setColor(6, 6); cout << "...";
     setColor(15, 15); cout << "........";
@@ -2163,7 +2163,7 @@ void OWin()
     setColor(15, 15); cout << "......";
 
     // Line 25
-    SetCursorPosition(84, 28);
+    SetCursorPosition(94, 32);
     setColor(15, 15); cout << "....";
     setColor(6, 6); cout << ".";
     setColor(15, 15); cout << ".........";
@@ -2177,13 +2177,13 @@ void OWin()
     setColor(15, 15); cout << ".......";
 
     // Line 26
-    SetCursorPosition(84, 29);
+    SetCursorPosition(94, 33);
     setColor(15, 15); cout << "...........";
     setColor(0, 0); cout << "...........";
     setColor(15, 15); cout << "............";
 
     // Line 27
-    SetCursorPosition(84, 30);
+    SetCursorPosition(94, 34);
     setColor(15, 15); cout << "...........";
     setColor(0, 0); cout << ".";
     setColor(14, 14); cout << "....";
@@ -2193,7 +2193,7 @@ void OWin()
     setColor(15, 15); cout << "............";
 
     // Line 28
-    SetCursorPosition(84, 31);
+    SetCursorPosition(94, 35);
     setColor(15, 15); cout << "...........";
     setColor(0, 0); cout << "...........";
     setColor(15, 15); cout << "............";
@@ -3195,6 +3195,17 @@ void LoadingScreen() {
     Blank(47, 18, 52, 3);
 }
 
+//void LoadingScreen() {
+//    SetCursorPosition(0, 0);
+//    for (int i = 0;i < 39;i++) {
+//        for (int j = 0;j < 147;j++) {
+//            cout << " ";
+//        }
+//        cout << endl;
+//        Sleep(20);
+//    }
+//}
+
 //General Function
 void ContentBox(short coordX, short coordY, short length, short width) {
     SetCursorPosition(coordX, coordY);
@@ -3245,9 +3256,9 @@ void SelectionBox(short coordX, short coordY, short length) {
 
 void Blank(short coordX, short coordY, short length, short width) /*Fill Blank*/
 {
-    for (short i = 0;i <= width;i++) {
+    for (short i = 0;i < width;i++) {
         SetCursorPosition(coordX, coordY + i);
-        for (short j = 1;j <= length;j++) {
+        for (short j = 0;j < length;j++) {
             cout << " ";
         }
     }
@@ -3373,7 +3384,7 @@ void GameInterface() {
 }
 
 void SaveBox() {
-    ContentBox(116, 10, 23, 5);
+    ContentBox(115, 10, 24, 5);
     SetCursorPosition(122, 11);
     cout << "File's Name";
     SetCursorPosition(118, 13);
@@ -3477,61 +3488,90 @@ void ScoreBox() {
 }
 
 void ReplayBox() {
-    Blank(85,3,50,12);
-    ContentBox(115, 7, 25,5);
-    SetCursorPosition(119, 8);
+    //Blank(85,3,50,12);
+    ContentBox(98, 3, 25, 5);
+    SetCursorPosition(102, 4);
     cout << "Start a new game?";
 }
 
 //2. Option Load Game
 void LoadBox() {
 
-    SetCursorPosition(39, 16);
+    SetCursorPosition(36, 16);
     printf("%c%c%c", 201, 205, 205);
-    for (short i = 0; i < 61; i++) {
-        if (i == 46) printf("%c", 194);
+    for (short i = 0; i < 67; i++) {
+        if (i == 52) printf("%c", 194);
         else printf("%c", 196);
     }
     printf("%c%c%c", 205, 205, 187);
 
-    SetCursorPosition(39, 17);
+    SetCursorPosition(36, 17);
     printf("%c", 186);
-    for (short i = 0; i < 14; i++) {
-        SetCursorPosition(39, 18 + i);
+    for (short i = 0; i < 15; i++) {
+        SetCursorPosition(36, 18 + i);
         if (i == 0) printf("%c", 195);
         else printf("%c", 179);
     }
-    SetCursorPosition(39, 32);
+    SetCursorPosition(36, 33);
     printf("%c", 186);
 
-    SetCursorPosition(39, 33);
+    SetCursorPosition(36, 34);
     printf("%c%c%c", 200, 205, 205);
-    for (short i = 0; i < 61; i++) {
-        if (i == 46) printf("%c", 193);
+    for (short i = 0; i < 67; i++) {
+        if (i == 52) printf("%c", 193);
         else printf("%c", 196);
     }
     printf("%c%c%c", 205, 205, 188);
 
-    SetCursorPosition(105, 17);
+    SetCursorPosition(108, 17);
     printf("%c", 186);
-    for (short i = 0;i < 14; i++) {
-        SetCursorPosition(105, 18 + i);
+    for (short i = 0;i < 15; i++) {
+        SetCursorPosition(108, 18 + i);
         printf("%c", 179);
     }
-    SetCursorPosition(105, 32);
+    SetCursorPosition(108, 33);
     printf("%c", 186);
 
 
-    SetCursorPosition(40, 18);
-    for (short i = 0; i < 48; i++) printf("%c", 196);
-    for (short i = 0; i < 16; i++) {
-        SetCursorPosition(88, 17 + i);
+    SetCursorPosition(37, 18);
+    for (short i = 0; i < 54; i++) printf("%c", 196);
+    for (short i = 0; i < 17; i++) {
+        SetCursorPosition(91, 17 + i);
         if (i == 1)printf("%c", 180);
         else printf("%c", 179);
     }
 
     SetCursorPosition(60, 17);
     cout << "SAVE FILE";
+}
+
+void PreviewBox() {
+    SetCursorPosition(62, 20);
+    printf("%c", 218);
+    for (int i = 0;i < 23;i++) printf("%c", 196);
+    printf("%c", 191);
+
+    for (int i = 0;i < 12;i++) {
+        SetCursorPosition(62, 21 + i);
+        printf("%c", 179);
+    }
+
+    for (int i = 0;i < 12;i++) {
+        SetCursorPosition(86, 21 + i);
+        printf("%c", 179);
+    }
+
+    SetCursorPosition(62, 33);
+    printf("%c", 192);
+    for (int i = 0;i < 23;i++) printf("%c", 196);
+    printf("%c", 217);
+
+    for (int i = 0;i < 12;i++) {
+        for (int j = 0;j < 12;j++) {
+            SetCursorPosition(63 + 2 * j, 21 + i);
+            cout << ".";
+        }
+    }
 }
 
 //4. Option About

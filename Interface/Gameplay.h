@@ -30,6 +30,9 @@ void MoveHistory();
 
 void LoadHistory();
 
+
+void PreviewHistory();
+
 // PVE
 extern int my_spot, enemy_spot;
 extern long defensePoint[7];
@@ -48,3 +51,4 @@ long getMainDiagonalDefenseVal(int curRow, int curCol);
 long getSemiDiagonalDefenseVal(int curRow, int curCol);
 
 void ComputerPlay(int& result, int c);
+
