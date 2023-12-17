@@ -45,6 +45,8 @@ void SaveFile(string s) {
 
     if (out != NULL) {
         fprintf(out, "%d\n", Moves);
+        fprintf(out, "%d %d\n", XPoint, OPoint);
+        fprintf(out, "%d\n", Gamemode);
         for (int i = 0; i < moves.size(); i++) {
             fprintf(out, "%d %d %d %d\n", moves[i].x, moves[i].y, moves[i].coordX, moves[i].coordY);
         }
@@ -54,6 +56,7 @@ void SaveFile(string s) {
 }
 
 bool RenameFile(string s) {
+    if (s == "") return;
     string oldName = "SaveGame\\" + s + ".txt";
     string newName = "SaveGame\\" + to_string(opt) + ". " + InputFileName(65, 19) + ".txt";
 
@@ -86,6 +89,8 @@ void LoadFile(string s) {
     if (inp != NULL) {
         int x, y, coordX, coordY;
         fscanf_s(inp, "%d", &Moves);
+        fscanf_s(inp, "%d %d", &XPoint, &OPoint);
+        fscanf_s(inp, "%d", &Gamemode);
         for (int i = 0; i < Moves; i++) {
             fscanf_s(inp, "%d %d %d %d", &x, &y, &coordX, &coordY);
             moves.push_back({ x, y, coordX, coordY });

@@ -147,7 +147,7 @@ int isDraw() {
     return false;
 }
 
-void GameMove(int& result, int c) {
+void PVPPlay(int& result, int c) {
     result = 0;
     int b = (coord.X + 2) / 4 - 4, a = (coord.Y - 8) / 2;
     short Player = Moves % 2;//X Player
@@ -736,7 +736,7 @@ long getSemiDiagonalDefenseVal(int curRow, int curCol) {
 	return totalVal;
 }
 
-void ComputerPlay(int& result, int c) {
+void PVEPlay(int& result, int c) {
     result = 0;
     int b = (coord.X + 2) / 4 - 4, a = (coord.Y - 8) / 2;
     short Player = Moves % 2; //X Player
@@ -772,8 +772,11 @@ void ComputerPlay(int& result, int c) {
             SetCursorPosition(coord.X, coord.Y);
             moves.push_back({ a, b, coord.X, coord.Y });
             OMark();
-            if (isWin(a, b, _POINT[a][b]) == 1) result = 1;
-            MoveHistory();
+            if (isWin(a, b, _POINT[a][b]) == 1) {
+                result = 1;
+                MoveHistory();
+                break;
+            }
 
             Moving ComputerMove = findBestMove();
             _POINT[ComputerMove.x][ComputerMove.y] = 2;

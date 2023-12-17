@@ -48,7 +48,6 @@ int main()
         case 1://New Game
             IsSelected = false;
             opt = 1;
-            if (Music == true) mciSendString(L"play game_start.wav", NULL, 0, NULL);
             Blank(67, 20, 13, 16);
             ContentBox(62, 23, 22, 7);
             while (!IsSelected && !Esc) {
@@ -58,11 +57,12 @@ int main()
                 opt = 0;
                 break;
             }
-
-
+            XPoint = 0;
+            OPoint = 0;
         Replay:
             ResetData();
         LoadGame:
+            if (Music == true) mciSendString(L"play game_start.wav", NULL, 0, NULL);
             IsSelected = false;
             Esc = false;
             opt = 1;
@@ -146,7 +146,16 @@ int main()
                     }
                 }
 
-                else GameMove(Result, c);
+                else {
+                    switch (Gamemode) {
+                    case 1:
+                        PVPPlay(Result, c);
+                        break;
+                    case 2:
+                        PVEPlay(Result, c);
+                        break;
+                    }
+                }
                 if (Result != 0) {
                     WinEffect();
                     Sleep(1500);
@@ -159,8 +168,17 @@ int main()
                         break;
                     }
                 }
-                else if (isDraw()) {
-                    cout << "Hoa";
+                if (isDraw()) {
+                    DrawEffect();
+                    Sleep(1500);
+                    ReplayBox();
+                    opt = 1;
+                    while (!IsSelected) Replay();
+                    if (opt == 1) goto Replay;
+                    else {
+                        opt = 0;
+                        break;
+                    }
                 }
             }
             break;

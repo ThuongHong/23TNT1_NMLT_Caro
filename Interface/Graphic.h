@@ -30,7 +30,7 @@ void XWin();
 void OWin();
 
 // Ham ve hieu ung hoa
-void Draw();
+void DrawEffect();
 
 // Ham ve tay cam do choi va menu
 void GameTitle();

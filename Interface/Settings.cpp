@@ -265,8 +265,14 @@ void Replay() {
 
 void WinEffect() {
     string a;
-    if (Result == 1) a = " X ";
-    else a = " O ";
+    if (Result == 1) {
+        a = " X ";
+        XPoint++;
+    }
+    else {
+        a = " O ";
+        OPoint++;
+    }
     CursorState(false);
     for (int i = 0; i < winMoves.size(); i++) {
         SetCursorPosition(winMoves[i].coordX - 1, winMoves[i].coordY);
@@ -276,8 +282,8 @@ void WinEffect() {
     }
     Sleep(1500);
     Blank(75, 0, 72, 39);
-    if (Result == 1) XWin();
-    else OWin();
+    if (Result == 1) DrawEffect();
+    else DrawEffect();
 }
 
 //2. Option Load Game

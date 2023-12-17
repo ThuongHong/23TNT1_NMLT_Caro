@@ -24,12 +24,11 @@ int isWin(int row_move, int col_move, int state);
 
 int isDraw();
 
-void GameMove(int& result, int c);
+void PVPPlay(int& result, int c);
 
 void MoveHistory();
 
 void LoadHistory();
-
 
 void PreviewHistory();
 
@@ -50,5 +49,5 @@ long getHorizontalDefenseVal(int curRow, int curCol);
 long getMainDiagonalDefenseVal(int curRow, int curCol);
 long getSemiDiagonalDefenseVal(int curRow, int curCol);
 
-void ComputerPlay(int& result, int c);
+void PVEPlay(int& result, int c);
 

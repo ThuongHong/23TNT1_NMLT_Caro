@@ -2202,7 +2202,7 @@ void OWin()
 }
 
 // Ham ve hieu ung hoa
-void Draw()
+void DrawEffect()
 {
     SetCursorPosition(84, 6); // row 1
     setColor(4, 4); cout << ".......";
