@@ -56,9 +56,10 @@ void SaveFile(string s) {
 }
 
 bool RenameFile(string s) {
-    if (s == "") return;
     string oldName = "SaveGame\\" + s + ".txt";
-    string newName = "SaveGame\\" + to_string(opt) + ". " + InputFileName(65, 19) + ".txt";
+    string temp = InputFileName(65, 19);
+    if (temp == "") return false;
+    string newName = "SaveGame\\" + to_string(opt) + ". " + temp + ".txt";
 
     if (rename(oldName.c_str(), newName.c_str()) == 0) {
         return true;

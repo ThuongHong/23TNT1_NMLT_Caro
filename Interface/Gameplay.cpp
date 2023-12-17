@@ -180,9 +180,9 @@ void PVPPlay(int& result, int c) {
             cout << ANSI_Blue << "X" << ANSI_Black;
             Moves++;
             if (Sound == true) mciSendString(L"play select.wav", NULL, 0, NULL);
-            SetCursorPosition(coord.X, coord.Y);
             moves.push_back({ a, b, coord.X, coord.Y });
             OMark();
+            SetCursorPosition(coord.X, coord.Y);
             if (isWin(a, b, _POINT[a][b]) == 1) result = 1;
             MoveHistory();
             break;
@@ -229,9 +229,9 @@ void PVPPlay(int& result, int c) {
             cout << ANSI_Red << "O" << ANSI_Black;
             Moves++;
             if (Sound == true) mciSendString(L"play select.wav", NULL, 0, NULL);
-            SetCursorPosition(coord.X, coord.Y);
             moves.push_back({ a, b, coord.X, coord.Y });
             XMark();
+            SetCursorPosition(coord.X, coord.Y);
             if (isWin(a, b, _POINT[a][b]) == 2) result = 2;
             MoveHistory();
             break;
@@ -769,19 +769,23 @@ void PVEPlay(int& result, int c) {
             cout << ANSI_Blue << "X" << ANSI_Black;
             Moves++;
             if (Sound == true) mciSendString(L"play select.wav", NULL, 0, NULL);
-            SetCursorPosition(coord.X, coord.Y);
             moves.push_back({ a, b, coord.X, coord.Y });
             OMark();
+            SetCursorPosition(coord.X, coord.Y);
             if (isWin(a, b, _POINT[a][b]) == 1) {
                 result = 1;
                 MoveHistory();
                 break;
             }
 
+            Sleep(250);
+
             Moving ComputerMove = findBestMove();
             _POINT[ComputerMove.x][ComputerMove.y] = 2;
             SetCursorPosition(ComputerMove.coordX, ComputerMove.coordY);
+            GetCursorPosition();
             cout << ANSI_Red << "O" << ANSI_Black;
+            SetCursorPosition(ComputerMove.coordX, ComputerMove.coordY);
             Moves++;
             if (Sound == true) mciSendString(L"play select.wav", NULL, 0, NULL);
             moves.push_back({ ComputerMove.x, ComputerMove.y, ComputerMove.coordX, ComputerMove.coordY });
@@ -792,17 +796,24 @@ void PVEPlay(int& result, int c) {
 
             break;
         case 'r':
-            if (moves.size() == 0) break;
-            Moving temp = moves.back();
-            moves.pop_back();
-            _POINT[temp.x][temp.y] = 0;
-            SetCursorPosition(temp.coordX, temp.coordY);
+            for (int i = 0; i < 2; i++) {
+                if (moves.size() == 0) break;
+                Moving temp = moves.back();
+                moves.pop_back();
+                _POINT[temp.x][temp.y] = 0;
+                SetCursorPosition(temp.coordX, temp.coordY);
+                GetCursorPosition();
+                cout << " ";
+                Moves--;
+                SetCursorPosition(temp.coordX, temp.coordY);
+                if (i == 0) OMark();
+                else XMark();
+                MoveHistory();
+                Sleep(250);
+            }
+            if (moves.size() > 0) SetCursorPosition(moves.back().coordX, moves.back().coordY);
+            else SetCursorPosition(34, 18);
             GetCursorPosition();
-            cout << " ";
-            OMark();
-            Moves--;
-            SetCursorPosition(temp.coordX, temp.coordY);
-            MoveHistory();
             break;
         }
     }

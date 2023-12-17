@@ -282,8 +282,8 @@ void WinEffect() {
     }
     Sleep(1500);
     Blank(75, 0, 72, 39);
-    if (Result == 1) DrawEffect();
-    else DrawEffect();
+    if (Result == 1) XWin();
+    else OWin();
 }
 
 //2. Option Load Game
