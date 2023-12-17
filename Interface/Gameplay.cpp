@@ -185,6 +185,7 @@ void PVPPlay(int& result, int c) {
             SetCursorPosition(coord.X, coord.Y);
             if (isWin(a, b, _POINT[a][b]) == 1) result = 1;
             MoveHistory();
+            isSaved = false;
             break;
         case 'r':
             if (moves.size() == 0) break;
@@ -234,6 +235,7 @@ void PVPPlay(int& result, int c) {
             SetCursorPosition(coord.X, coord.Y);
             if (isWin(a, b, _POINT[a][b]) == 2) result = 2;
             MoveHistory();
+            isSaved = false;
             break;
         case 'r':
             if (moves.size() == 0) break;
@@ -253,8 +255,8 @@ void PVPPlay(int& result, int c) {
 }
 
 void MoveHistory() {
-    Blank(22, 35, 20, 1);
-    SetCursorPosition(22, 35);
+    Blank(38, 34, 21, 1);
+    SetCursorPosition(28, 36);
     if (moves.empty()) {
         cout << "Last Move: ...";
     }
@@ -792,7 +794,7 @@ void PVEPlay(int& result, int c) {
             XMark();
             if (isWin(ComputerMove.x, ComputerMove.y, _POINT[ComputerMove.x][ComputerMove.y]) == 2) result = 2;
             MoveHistory();
-
+            isSaved = false;
 
             break;
         case 'r':

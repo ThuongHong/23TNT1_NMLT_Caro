@@ -5,6 +5,7 @@ DIR* d;
 struct dirent* dir;
 string fileName[7]{ "" }, tmpFileName = "";
 int nFile = 0;
+bool isSaved = false;;
 
 string InputFileName(int x, int y) {
     const int LEN = 10;
@@ -50,6 +51,8 @@ void SaveFile(string s) {
         for (int i = 0; i < moves.size(); i++) {
             fprintf(out, "%d %d %d %d\n", moves[i].x, moves[i].y, moves[i].coordX, moves[i].coordY);
         }
+
+        isSaved = true;
 
         fclose(out);
     }

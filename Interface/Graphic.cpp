@@ -2202,9 +2202,9 @@ void OWin()
 }
 
 // Ham ve hieu ung hoa
-void DrawEffect()
+void Draw()
 {
-    SetCursorPosition(84, 6); // row 1
+    SetCursorPosition(89, 10); // row 1
     setColor(4, 4); cout << ".......";
     setColor(11, 11); cout << ".";
     setColor(15, 15); cout << "....";
@@ -2220,7 +2220,7 @@ void DrawEffect()
         setColor(12, 12); cout << ".";
         setColor(15, 15); cout << ".";
     }
-    SetCursorPosition(84, 7); // row 2
+    SetCursorPosition(89, 11); // row 2
     setColor(4, 4); cout << ".........";
     setColor(11, 11); cout << ".";
     setColor(15, 15); cout << ".";
@@ -2236,7 +2236,7 @@ void DrawEffect()
         setColor(12, 12); cout << ".";
         setColor(15, 15); cout << ".";
     }
-    SetCursorPosition(84, 8); // row 3
+    SetCursorPosition(89, 12); // row 3
     setColor(4, 4); cout << "..";
     setColor(11, 11); cout << ".";
     setColor(15, 15); cout << "...";
@@ -2261,7 +2261,7 @@ void DrawEffect()
         setColor(12, 12); cout << ".";
         setColor(15, 15); cout << ".";
     }
-    SetCursorPosition(84, 9); // row 4
+    SetCursorPosition(89, 13); // row 4
     setColor(4, 4); cout << "..";
     setColor(11, 11); cout << ".";
     setColor(15, 15); cout << "....";
@@ -2286,7 +2286,7 @@ void DrawEffect()
         setColor(12, 12); cout << ".";
         setColor(15, 15); cout << ".";
     }
-    SetCursorPosition(84, 10); // row 5
+    SetCursorPosition(89, 14); // row 5
     setColor(4, 4); cout << "..";
     setColor(11, 11); cout << ".";
     setColor(15, 15); cout << "....";
@@ -2305,7 +2305,7 @@ void DrawEffect()
         setColor(12, 12); cout << ".";
         setColor(15, 15); cout << ".";
     }
-    SetCursorPosition(84, 11); // row 6
+    SetCursorPosition(89, 15); // row 6
     setColor(4, 4); cout << "..";
     setColor(11, 11); cout << ".";
     setColor(15, 15); cout << "....";
@@ -2324,7 +2324,7 @@ void DrawEffect()
         setColor(12, 12); cout << ".";
         setColor(15, 15); cout << ".";
     }
-    SetCursorPosition(84, 12); // row 7
+    SetCursorPosition(89, 16); // row 7
     setColor(4, 4); cout << "..";
     setColor(11, 11); cout << ".";
     setColor(15, 15); cout << "...";
@@ -2344,7 +2344,7 @@ void DrawEffect()
     setColor(15, 15); cout << ".";
     setColor(1, 1); cout << "..........";
     setColor(12, 12); cout << ".";
-    SetCursorPosition(84, 13); // row 8
+    SetCursorPosition(89, 17); // row 8
     setColor(4, 4); cout << "........";
     setColor(11, 11); cout << ".";
     setColor(15, 15); cout << "..";
@@ -2362,7 +2362,7 @@ void DrawEffect()
     setColor(15, 15); cout << ".";
     setColor(1, 1); cout << "..........";
     setColor(12, 12); cout << ".";
-    SetCursorPosition(84, 14); // row 9
+    SetCursorPosition(89, 18); // row 9
     setColor(4, 4); cout << ".......";
     setColor(11, 11); cout << ".";
     setColor(15, 15); cout << "...";
@@ -2383,31 +2383,31 @@ void DrawEffect()
     setColor(15, 15); cout << "...";
     setColor(1, 1); cout << "..";
     setColor(12, 12); cout << ".";
-    SetCursorPosition(84, 16); // row 10
+    SetCursorPosition(89, 20); // row 10
     setColor(15, 15); cout << "...................";
     setColor(0, 0); cout << "......";
-    SetCursorPosition(84, 17); // row 11
+    SetCursorPosition(89, 21); // row 11
     setColor(15, 15); cout << ".................";
     setColor(0, 0); cout << "..";
     setColor(2, 2); cout << ".";
     setColor(10, 10); cout << "....";
     setColor(2, 2); cout << ".";
     setColor(0, 0); cout << "..";
-    SetCursorPosition(84, 18); // row 12
+    SetCursorPosition(89, 22); // row 12
     setColor(15, 15); cout << "...............";
     setColor(0, 0); cout << "..";
     setColor(2, 2); cout << ".";
     setColor(10, 10); cout << "........";
     setColor(2, 2); cout << ".";
     setColor(0, 0); cout << "..";
-    SetCursorPosition(84, 19); // row 13
+    SetCursorPosition(89, 23); // row 13
     setColor(15, 15); cout << "..............";
     setColor(0, 0); cout << ".";
     setColor(2, 2); cout << ".";
     setColor(10, 10); cout << "..........";
     setColor(2, 2); cout << ".";
     setColor(0, 0); cout << ".";
-    SetCursorPosition(84, 20); // row 14
+    SetCursorPosition(89, 24); // row 14
     setColor(15, 15); cout << ".............";
     setColor(0, 0); cout << ".";
     setColor(2, 2); cout << "..";
@@ -2420,7 +2420,7 @@ void DrawEffect()
     setColor(10, 10); cout << ".";
     setColor(2, 2); cout << "..";
     setColor(0, 0); cout << ".";
-    SetCursorPosition(84, 21); // row 15
+    SetCursorPosition(89, 25); // row 15
     setColor(15, 15); cout << "..............";
     setColor(0, 0); cout << ".";
     setColor(10, 10); cout << "..";
@@ -2429,7 +2429,7 @@ void DrawEffect()
     setColor(1, 1); cout << "..";
     setColor(10, 10); cout << "..";
     setColor(0, 0); cout << ".";
-    SetCursorPosition(84, 22); // row 16
+    SetCursorPosition(89, 26); // row 16
     setColor(15, 15); cout << ".............";
     setColor(0, 0); cout << "..";
     setColor(10, 10); cout << "......";
@@ -2437,7 +2437,7 @@ void DrawEffect()
     setColor(13, 13); cout << ".";
     setColor(10, 10); cout << "......";
     setColor(0, 0); cout << "..";
-    SetCursorPosition(84, 23); // row 17
+    SetCursorPosition(89, 27); // row 17
     setColor(15, 15); cout << "............";
     setColor(0, 0); cout << ".";
     setColor(2, 2); cout << ".";
@@ -2446,7 +2446,7 @@ void DrawEffect()
     setColor(10, 10); cout << ".......";
     setColor(2, 2); cout << ".";
     setColor(0, 0); cout << ".";
-    SetCursorPosition(84, 24); // row 18
+    SetCursorPosition(89, 28); // row 18
     setColor(15, 15); cout << "...........";
     setColor(0, 0); cout << ".";
     setColor(2, 2); cout << ".";
@@ -2457,7 +2457,7 @@ void DrawEffect()
     setColor(10, 10); cout << ".....";
     setColor(2, 2); cout << ".";
     setColor(0, 0); cout << ".";
-    SetCursorPosition(84, 25); // row 19
+    SetCursorPosition(89, 29); // row 19
     setColor(15, 15); cout << "............";
     setColor(0, 0); cout << ".";
     setColor(2, 2); cout << ".";
@@ -2472,7 +2472,7 @@ void DrawEffect()
     setColor(10, 10); cout << "...";
     setColor(2, 2); cout << ".";
     setColor(0, 0); cout << ".";
-    SetCursorPosition(84, 26); // row 20
+    SetCursorPosition(89, 30); // row 20
     setColor(15, 15); cout << ".............";
     setColor(0, 0); cout << ".";
     setColor(10, 10); cout << "....";
@@ -2481,7 +2481,7 @@ void DrawEffect()
     setColor(0, 0); cout << "..";
     setColor(10, 10); cout << "....";
     setColor(0, 0); cout << ".";
-    SetCursorPosition(84, 27); // row 21
+    SetCursorPosition(89, 31); // row 21
     setColor(15, 15); cout << "............";
     setColor(0, 0); cout << "..";
     setColor(10, 10); cout << ".";
@@ -2492,7 +2492,7 @@ void DrawEffect()
     setColor(9, 9); cout << ".";
     setColor(10, 10); cout << ".";
     setColor(0, 0); cout << "..";
-    SetCursorPosition(84, 28); // row 22
+    SetCursorPosition(89, 32); // row 22
     setColor(15, 15); cout << "...........";
     setColor(0, 0); cout << ".";
     setColor(2, 2); cout << ".";
@@ -2507,26 +2507,26 @@ void DrawEffect()
     setColor(10, 10); cout << "..";
     setColor(2, 2); cout << ".";
     setColor(0, 0); cout << ".";
-    SetCursorPosition(84, 29); // row 23
+    SetCursorPosition(89, 33); // row 23
     setColor(15, 15); cout << "..........";
     setColor(2, 2); cout << ".........";
     setColor(0, 0); cout << "....";
     setColor(2, 2); cout << ".........";
     setColor(0, 0); cout << ".";
-    SetCursorPosition(84, 30); // row 24
+    SetCursorPosition(89, 34); // row 24
     setColor(15, 15); cout << "...........";
     setColor(0, 0); cout << ".....";
     setColor(2, 2); cout << "............";
     setColor(0, 0); cout << ".....";
-    SetCursorPosition(84, 31); // row 25
+    SetCursorPosition(89, 35); // row 25
     setColor(15, 15); cout << ".................";
     setColor(0, 0); cout << "............";
-    SetCursorPosition(84, 32); // row 26
+    SetCursorPosition(89, 36); // row 26
     setColor(15, 15); cout << ".................";
     setColor(0, 0); cout << ".";
     setColor(14, 14); cout << "..........";
     setColor(0, 0); cout << ".";
-    SetCursorPosition(84, 33); // row 27
+    SetCursorPosition(89, 37); // row 27
     setColor(15, 15); cout << ".................";
     setColor(0, 0); cout << "............";
     setColor(15, 15);
@@ -3347,40 +3347,60 @@ void GameInterface() {
     SetCursorPosition(106, 19);
     cout << "Navigation";
 
+    if (Gamemode == 1) {
+        //Player 1
+        SetCursorPosition(90, 22);
+        cout << ANSI_Blue << "Player X:" << ANSI_Black;
+        SetCursorPosition(88, 25);
+        cout << "'W'    : Go Up ";
+        SetCursorPosition(88, 27);
+        cout << "'A'    : Go Left ";
+        SetCursorPosition(88, 29);
+        cout << "'S'    : Go Down ";
+        SetCursorPosition(88, 31);
+        cout << "'D'    : Go Right ";
+        SetCursorPosition(88, 33);
+        cout << "'SPACE': Mark";
 
-    //Player 1
-    SetCursorPosition(90, 22);
-    cout << ANSI_Blue << "Player X:" << ANSI_Black;
-    SetCursorPosition(88, 25);
-    cout << "'W'    : Go Up ";
-    SetCursorPosition(88, 27);
-    cout << "'A'    : Go Left ";
-    SetCursorPosition(88, 29);
-    cout << "'S'    : Go Down ";
-    SetCursorPosition(88, 31);
-    cout << "'D'    : Go Right ";
-    SetCursorPosition(88, 33);
-    cout << "'SPACE': Mark";
-
-    //Player 2
-    SetCursorPosition(121, 22);
-    cout << ANSI_Red << "Player O:" << ANSI_Black;
-    SetCursorPosition(119, 25);
-    printf("%s%c%s", "'", 286, "'    : Go Up");
-    SetCursorPosition(119, 27);
-    printf("%s%c%s", "'", 272, "'    : Go Left");
-    SetCursorPosition(119, 29);
-    printf("%s%c%s", "'", 287, "'    : Go Down");
-    SetCursorPosition(119, 31);
-    printf("%s%c%s", "'", 273, "'    : Go Right");
-    SetCursorPosition(119, 33);
-    cout << "'ENTER': Mark";
+        //Player 2
+        SetCursorPosition(121, 22);
+        cout << ANSI_Red << "Player O:" << ANSI_Black;
+        SetCursorPosition(119, 25);
+        printf("%s%c%s", "'", 286, "'    : Go Up");
+        SetCursorPosition(119, 27);
+        printf("%s%c%s", "'", 272, "'    : Go Left");
+        SetCursorPosition(119, 29);
+        printf("%s%c%s", "'", 287, "'    : Go Down");
+        SetCursorPosition(119, 31);
+        printf("%s%c%s", "'", 273, "'    : Go Right");
+        SetCursorPosition(119, 33);
+        cout << "'ENTER': Mark";
+    }
+    else {
+        SetCursorPosition(108, 22);
+        cout << ANSI_Blue << "Player:" << ANSI_Black;
+        SetCursorPosition(106, 25);
+        cout << "'W'    : Go Up ";
+        SetCursorPosition(106, 27);
+        cout << "'A'    : Go Left ";
+        SetCursorPosition(106, 29);
+        cout << "'S'    : Go Down ";
+        SetCursorPosition(106, 31);
+        cout << "'D'    : Go Right ";
+        SetCursorPosition(106, 33);
+        cout << "'SPACE': Mark";
+    }
 
     //
     SetCursorPosition(106, 35);
     cout << "'ESC': Menu";
     SetCursorPosition(106, 37);
     cout << "'R'  : Undo";
+
+    SetCursorPosition(18, 34);
+    cout << "Gamemode: ";
+    if (Gamemode == 1) cout << "PvP";
+    else cout << "PvE";
 }
 
 void SaveBox() {
@@ -3474,16 +3494,27 @@ void ScoreBox() {
     SetCursorPosition(31, 2);
     cout << "SCOREBOARD";
 
-    SetCursorPosition(20, 4);
-    cout << ANSI_Blue << "Player X" << ANSI_Black;
+    if (Gamemode == 1) {
+        SetCursorPosition(21, 4);
+        cout << ANSI_Blue << "Player X" << ANSI_Black;
 
-    SetCursorPosition(44, 4);
-    cout << ANSI_Red << "Player O" << ANSI_Black;
+        SetCursorPosition(45, 4);
+        cout << ANSI_Red << "Player O" << ANSI_Black;
+    }
 
-    SetCursorPosition(23, 5);
+    else {
+        SetCursorPosition(21, 4);
+        cout << ANSI_Blue << "Player" << ANSI_Black;
+
+        SetCursorPosition(47, 4);
+        cout << ANSI_Red << "Bot" << ANSI_Black;
+
+    }
+
+    SetCursorPosition(24, 5);
     cout << XPoint;
 
-    SetCursorPosition(47, 5);
+    SetCursorPosition(48, 5);
     cout << OPoint;
 }
 
@@ -3578,8 +3609,8 @@ void PreviewBox() {
 void AboutContent() {
     SetCursorPosition(58, 15);
     cout << ANSI_Blue << "UNIVERSITY OF SCIENCE | 23TNT01";
-    SetCursorPosition(67, 17);
-    cout << ANSI_Red << "<< ADVISOR >>" << ANSI_Black;
+    SetCursorPosition(65, 17);
+    cout << ANSI_Red << "<< INSTRUCTOR >>" << ANSI_Black;
     SetCursorPosition(58, 18);
     cout << "_______________________________";
     SetCursorPosition(65, 20);

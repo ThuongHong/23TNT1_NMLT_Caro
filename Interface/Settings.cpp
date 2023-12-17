@@ -253,6 +253,22 @@ void GameMenuSelection() {
     NavigateUpDown(3);
 }
 
+void CheckSaved() {
+    Blank(42, 34, 7, 1);
+    SetCursorPosition(38, 34);
+    cout << "Status: ";
+    if (isSaved) {
+        setColor(10, 0);
+        cout << "  Saved  ";
+        setColor(15, 0);
+    }
+    else {
+        setColor(12, 0);
+        cout << " Unsaved ";
+        setColor(15, 0);
+    }
+}
+
 void Replay() {
     SetCursorPosition(105, 6);
     if (opt == 1) cout << ANSI_Green;
@@ -286,6 +302,11 @@ void WinEffect() {
     else OWin();
 }
 
+void DrawEffect() {
+    CursorState(false);
+    Blank(75, 0, 72, 39);
+    Draw();
+}
 //2. Option Load Game
 void LoadSelection1() {
     getFileName();

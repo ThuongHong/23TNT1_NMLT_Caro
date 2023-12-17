@@ -6,6 +6,7 @@ extern DIR* d;
 extern struct dirent* dir;
 extern string fileName[7], tmpFileName;
 extern int nFile;
+extern bool isSaved;
 
 string InputFileName(int x, int y);
 

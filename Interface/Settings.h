@@ -56,9 +56,13 @@ void SelectGamemode(int& Gamemode);
 
 void GameMenuSelection();
 
+void CheckSaved();
+
 void Replay();
 
 void WinEffect();
+
+void DrawEffect();
 
 //2. Option Load Game
 void LoadSelection1();

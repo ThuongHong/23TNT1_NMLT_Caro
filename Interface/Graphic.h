@@ -1,6 +1,7 @@
 #pragma once
 #include "Settings.h"
 #include "Gameplay.h"
+#include "FileGame.h"
 
 // Ham chinh mau cho 1 pixel
 void setColor(int b_color, int t_color);
@@ -30,7 +31,7 @@ void XWin();
 void OWin();
 
 // Ham ve hieu ung hoa
-void DrawEffect();
+void Draw();
 
 // Ham ve tay cam do choi va menu
 void GameTitle();

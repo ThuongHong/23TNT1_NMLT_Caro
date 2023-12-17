@@ -98,6 +98,7 @@ int main()
                 a = coord.X; b = coord.Y;
                 SetCursorPosition(126, 5);
                 cout << setw(3) << setfill('0') << Moves;
+                CheckSaved();
                 SetCursorPosition(a, b);
 
                 c = _getch();
@@ -106,7 +107,7 @@ int main()
                     CursorState(false);
                     while (!IsSelected) GameMenuSelection();
                     if (opt == 1) {
-                        Blank(119, 8, 17, 8);
+                        Blank(119, 8, 17, 9);
                         IsSelected = false;
                         SetCursorPosition(a, b);
                         CursorState(true);
@@ -121,7 +122,7 @@ int main()
                             getFileName(); // De kiem tra hien tai dang co bao nhieu files
                             SaveFile(InputFileName(125, 13));
                             if (c == 27) {
-                                Blank(116, 10, 23, 5);
+                                Blank(115, 10, 24, 5);
                                 SetCursorPosition(a, b);
                                 IsSelected = false;
                             }
@@ -180,6 +181,7 @@ int main()
                         break;
                     }
                 }
+
             }
             break;
 
@@ -214,7 +216,10 @@ int main()
                         while (1) {
                             bool RenameOk = RenameFile(fileName[opt]);
                             if (c == 27) {
-                                Blank(55, 19, 25, 1);
+                                SetCursorPosition(51, 19);
+                                cout << "Unsuccessfully Renamed !!!";
+                                Sleep(1500);
+                                Blank(51, 19, 26, 1);
                                 CursorState(false);
                                 break;
                             }
@@ -269,6 +274,7 @@ int main()
             LoadingScreen();
             Settings();
             opt = 1;
+            IsSelected = false;
             ContentBox(63, 21, 20, 7);
             if (Music == false) cout << ANSI_Grey;
             MusicNote(); cout << ANSI_Black;
