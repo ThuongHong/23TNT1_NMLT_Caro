@@ -145,6 +145,7 @@ int main()
                         break;
                     }
                 }
+
                 else GameMove(Result, c);
                 if (Result != 0) {
                     WinEffect();
@@ -157,6 +158,9 @@ int main()
                         opt = 0;
                         break;
                     }
+                }
+                else if (isDraw()) {
+                    cout << "Hoa";
                 }
             }
             break;

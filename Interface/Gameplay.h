@@ -20,7 +20,9 @@ extern int Result;
 
 void ResetData();
 
-int isEnd(int row_move, int col_move, int state);
+int isWin(int row_move, int col_move, int state);
+
+int isDraw();
 
 void GameMove(int& result, int c);
 
@@ -28,4 +30,25 @@ void MoveHistory();
 
 void LoadHistory();
 
+
 void PreviewHistory();
+
+// PVE
+extern int my_spot, enemy_spot;
+extern long defensePoint[7];
+extern long attackPoint[7];
+
+Moving findBestMove();
+
+long getVerticalAttackVal(int curRow, int curCol);
+long getHorizontalAttackVal(int curRow, int curCol);
+long getMainDiagonalAttackVal(int curRow, int curCol);
+long getSemiDiagonalAttackVal(int curRow, int curCol);
+
+long getVerticalDefenseVal(int curRow, int curCol);
+long getHorizontalDefenseVal(int curRow, int curCol);
+long getMainDiagonalDefenseVal(int curRow, int curCol);
+long getSemiDiagonalDefenseVal(int curRow, int curCol);
+
+void ComputerPlay(int& result, int c);
+
