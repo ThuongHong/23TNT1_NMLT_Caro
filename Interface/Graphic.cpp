@@ -2404,7 +2404,7 @@ void Draw()
     setColor(15, 15); cout << "..............";
     setColor(0, 0); cout << ".";
     setColor(2, 2); cout << ".";
-    setColor(10, 10); cout << "..........";
+    setColor(10, 10); cout << "............";
     setColor(2, 2); cout << ".";
     setColor(0, 0); cout << ".";
     SetCursorPosition(89, 24); // row 14
@@ -2509,6 +2509,7 @@ void Draw()
     setColor(0, 0); cout << ".";
     SetCursorPosition(89, 33); // row 23
     setColor(15, 15); cout << "..........";
+    setColor(0, 0); cout << ".";
     setColor(2, 2); cout << ".........";
     setColor(0, 0); cout << "....";
     setColor(2, 2); cout << ".........";
@@ -2519,15 +2520,15 @@ void Draw()
     setColor(2, 2); cout << "............";
     setColor(0, 0); cout << ".....";
     SetCursorPosition(89, 35); // row 25
-    setColor(15, 15); cout << ".................";
+    setColor(15, 15); cout << "................";
     setColor(0, 0); cout << "............";
     SetCursorPosition(89, 36); // row 26
-    setColor(15, 15); cout << ".................";
+    setColor(15, 15); cout << "................";
     setColor(0, 0); cout << ".";
     setColor(14, 14); cout << "..........";
     setColor(0, 0); cout << ".";
     SetCursorPosition(89, 37); // row 27
-    setColor(15, 15); cout << ".................";
+    setColor(15, 15); cout << "................";
     setColor(0, 0); cout << "............";
     setColor(15, 15);
     cout << ANSI_Black;
