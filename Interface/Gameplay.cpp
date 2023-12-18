@@ -257,7 +257,7 @@ void PVPPlay(int& result, int c) {
 }
 
 void MoveHistory() {
-    Blank(38, 34, 21, 1);
+    Blank(28, 36, 21, 1);
     SetCursorPosition(28, 36);
     if (moves.empty()) {
         cout << "Last Move: ...";

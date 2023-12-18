@@ -193,6 +193,7 @@ int main()
             IsSelected = false;
 
             while (!Esc) {
+                Blank(40, 21, 13, 11);
                 getFileName();
                 LoadFile(fileName[opt]);
                 PreviewHistory();
