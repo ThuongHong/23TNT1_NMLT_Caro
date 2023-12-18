@@ -47,6 +47,8 @@ void Loading();
 
 void LoadingScreen();
 
+void TransitionScreen();
+
 //General Function
 void ContentBox(short coordX, short coordY, short length, short width);
 

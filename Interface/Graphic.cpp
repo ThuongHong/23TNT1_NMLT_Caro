@@ -3195,16 +3195,35 @@ void LoadingScreen() {
     Blank(47, 18, 52, 3);
 }
 
-//void LoadingScreen() {
-//    SetCursorPosition(0, 0);
-//    for (int i = 0;i < 39;i++) {
-//        for (int j = 0;j < 147;j++) {
-//            cout << " ";
-//        }
-//        cout << endl;
-//        Sleep(20);
-//    }
-//}
+void TransitionScreen() {
+    setColor(0, 0);
+    for (int i = 0;i < 20;i++) {
+        SetCursorPosition(0, i);
+        for (int j = 0;j < 147;j++) {
+            printf("%c", 219);
+        }
+        SetCursorPosition(0, 39-i);
+        for (int j = 0;j < 147;j++) {
+            printf("%c", 219);
+        }
+        Sleep(5);
+    }
+
+    setColor(15, 15);
+    for (int i = 0;i < 20;i++) {
+        SetCursorPosition(0, 19-i);
+        for (int j = 0;j < 147;j++) {
+            printf("%c", 219);
+        }
+        SetCursorPosition(0, 19 + i);
+        for (int j = 0;j < 147;j++) {
+            printf("%c", 219);
+        }
+        Sleep(5);
+    }
+    setColor(15, 0);
+
+}
 
 //General Function
 void ContentBox(short coordX, short coordY, short length, short width) {

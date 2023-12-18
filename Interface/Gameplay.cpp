@@ -199,6 +199,7 @@ void PVPPlay(int& result, int c) {
             Moves--;
             SetCursorPosition(temp.coordX, temp.coordY);
             MoveHistory();
+            isSaved = false;
             break;
         }
     }
@@ -249,6 +250,7 @@ void PVPPlay(int& result, int c) {
             Moves--;
             SetCursorPosition(temp.coordX, temp.coordY);
             MoveHistory();
+            isSaved = false;
             break;
         }
     }
@@ -811,6 +813,7 @@ void PVEPlay(int& result, int c) {
                 if (i == 0) OMark();
                 else XMark();
                 MoveHistory();
+                isSaved = false;
                 Sleep(250);
             }
             if (moves.size() > 0) SetCursorPosition(moves.back().coordX, moves.back().coordY);

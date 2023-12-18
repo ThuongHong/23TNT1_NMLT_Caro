@@ -186,8 +186,7 @@ int main()
             break;
 
         case 2://Load Game
-            system("cls");
-            LoadingScreen();
+            TransitionScreen();
             LoadBox();
             LoadGame();
             opt = 1;
@@ -270,8 +269,7 @@ int main()
             break;
 
         case 3://Settings
-            system("cls");
-            LoadingScreen();
+            TransitionScreen();
             Settings();
             opt = 1;
             IsSelected = false;
@@ -297,8 +295,7 @@ int main()
             break;
 
         case 4://About
-            system("cls");
-            LoadingScreen();
+            TransitionScreen();
             About();
             ContentBox(38, 14, 72, 21);
             while (!Esc) AboutSelection();
@@ -306,8 +303,7 @@ int main()
             break;
 
         case 5://Help
-            system("cls");
-            LoadingScreen();
+            TransitionScreen();
             Help();
             opt = 1;
             ContentBox(38, 15, 72, 20);
