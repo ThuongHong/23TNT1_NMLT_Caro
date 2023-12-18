@@ -3676,11 +3676,11 @@ void NavigationContent() {
     SetCursorPosition(85, 20);
     printf("%s%c%s", "'", 286, "'    : Go Up");
     SetCursorPosition(85, 22);
-    printf("%s%c%s", "'", 272, "'    : Go Left");
+    printf("%s%c%s", "'", 273, "'    : Go Left");
     SetCursorPosition(85, 24);
     printf("%s%c%s", "'", 287, "'    : Go Down");
     SetCursorPosition(85, 26);
-    printf("%s%c%s", "'", 273, "'    : Go Right");
+    printf("%s%c%s", "'", 272, "'    : Go Right");
     SetCursorPosition(85, 28);
     cout << "'ENTER': Mark";
 
