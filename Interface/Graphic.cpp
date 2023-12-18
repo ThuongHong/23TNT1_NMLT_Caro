@@ -2404,7 +2404,7 @@ void Draw()
     setColor(15, 15); cout << "..............";
     setColor(0, 0); cout << ".";
     setColor(2, 2); cout << ".";
-    setColor(10, 10); cout << "..........";
+    setColor(10, 10); cout << "............";
     setColor(2, 2); cout << ".";
     setColor(0, 0); cout << ".";
     SetCursorPosition(89, 24); // row 14
